@@ -1,14 +1,11 @@
 'use client'
-import { Rufo } from '../../app/font'
+import { HalvarEng, Rufo, SinHala, StadMitte } from '../../app/font'
 import { useInView } from 'react-intersection-observer'
 import TextAnimation from '../../hooks/TextAnimation';
 import NewDetail from './newdetail';
 import Detailpros from './detailpros'
-import { useData } from '../../hooks/useGetData';
 
 const DetailAbout = () => {
-    const data = useData()
-
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '0px 0px -50% 0px'
@@ -21,11 +18,13 @@ const DetailAbout = () => {
 
             <section className='proj-detail-area white'>
                 <div className='container-fluid p-0'>
-                    <div className='total-area-img' style={{ backgroundImage: `url('/assets/img/project-detail/plam-flower.jpg')` }}>
+                    <div className='total-area-img'>
+                        {/* <img src="/assets/img/project-detail/total-villa-img.webp" alt="" /> */}
+
                         <div className='total-area-count'>
                             <span>TOTAL AREA</span>
                             <h2 className={` ${Rufo.className}`}>
-                                <TextAnimation text={data?.data?.totalArea?.totalAreaCovered || ''} />
+                                <TextAnimation text={'18,300 '} />
                                 <sup className='sq-wrapper'>
                                     Sq.Ft
                                 </sup>

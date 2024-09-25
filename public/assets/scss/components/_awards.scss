@@ -1,7 +1,7 @@
 .awards {
     $white : #fff;
     $black : #222;
-    min-height: 800px;
+
     padding-top: 100px;
     padding-bottom: 100px;
 
@@ -19,6 +19,11 @@
     }
 
     .award-card {
+        display: block;
+        position: relative;
+        outline: none;
+        overflow: hidden;
+        contain: content;
 
         .card-image {
             width: 80%;
@@ -55,20 +60,19 @@
             }
         }
 
-        // .card-sizer {
-        //     padding-top: 100%;
-        // }
+        .card-sizer {
+            padding-top: 100%;
+        }
 
         .card-content {
-            // position: absolute;
-            // left: 0;
-            // top: 0;
-            // width: 100%;
-            // height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 400px;
             padding: 30px;
             border-top: 1px solid rgba(34, 34, 34, .1);
             border-right: 1px solid rgba(34, 34, 34, .1);
@@ -89,6 +93,9 @@
             clip-path: circle(0 at 50% 50%);
             z-index: 1;
             padding: 50px;
+            contain: strict;
+
+
         }
 
         .card-bottom {
@@ -97,6 +104,22 @@
             bottom: 0;
             padding: 60px;
         }
+
+        // &:hover {
+        //     .card-hover {
+        //         clip-path: circle(70.71068% at 50% 50%);
+        //     }
+
+        //     .card-bottom {
+        //         .leading-trim {
+        //             color: #fff;
+        //         }
+
+        //         .text--color-small {
+        //             color: hsla(0, 0%, 100%, .5);
+        //         }
+        //     }
+        // }
 
 
         &.active {
@@ -151,8 +174,6 @@
 @media screen and (max-width : 767.98px) {
 
     .awards {
-        min-height: auto;
-
         .company-awards-header {
             padding-inline: 30px;
 

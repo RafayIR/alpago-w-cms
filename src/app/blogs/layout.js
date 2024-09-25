@@ -1,5 +1,4 @@
 import { Halvar } from '../font';
-import { getBlogsData } from '../_fetchData/index'
 
 
 export const metadata = {

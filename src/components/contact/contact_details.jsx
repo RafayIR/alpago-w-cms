@@ -1,14 +1,8 @@
 
 import { SinHala, StadMitte } from "../../app/font"
 import { AiFillLinkedin } from "react-icons/ai";
-import { useData } from "../../hooks/useGetData";
-
-
 const ContactDetail = () => {
-    const data = useData()
-    const contact_address = data?.data?.content?.address
-    const contactInfo = data?.data?.content?.contactInfo
-    const social = data?.data?.content?.social
+
 
 
     return (
@@ -21,20 +15,15 @@ const ContactDetail = () => {
                                 <div className="address-wrapper row">
                                     <div className="col-xxl-4 col-xl-4 col-lg-4 col-12 frst-col">
                                         <span className={`contact-label ${StadMitte.className}`}>
-                                            {contact_address.title}
+                                            ADDRESS
                                         </span>
                                         <div className="contact-desc">
                                             <p className={SinHala.className}>
-                                                {contact_address.address}
-                                            </p>
-
-
-                                            {/* <p className={SinHala.className}>
                                                 Office 2603 Level 26, Boulevard Plaza,
                                             </p>
                                             <p>
                                                 Tower 1,Downtown Dubai, Dubai, UAE.
-                                            </p> */}
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="col-xxl-4 col-xl-4 col-lg-4 col-12 middle-col">
@@ -43,10 +32,10 @@ const ContactDetail = () => {
                                         </span>
                                         <ul className="contact-tel">
                                             <li>
-                                                <a className={SinHala.className} href="tel:+44 7918398795">{contactInfo.phone}</a>
+                                                <a className={SinHala.className} href="tel:+44 7918398795">+44 7918398795 </a>
                                             </li>
                                             <li>
-                                                <a className={SinHala.className} href="mailto:info@alpagoproperties.co.uk">{contactInfo.email}</a>
+                                                <a className={SinHala.className} href="mailto:info@alpagoproperties.co.uk">info@alpagoproperties.co.uk</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -54,21 +43,9 @@ const ContactDetail = () => {
 
                                         <div className="social-wrapper">
                                             <span className={`contact-label ${StadMitte.className}`}>
-                                                {social.title}
+                                                SOCIAL LINKS
                                             </span>
                                             <ul className="social-list-wrapper">
-                                                {
-                                                    social?.social_link?.map((social, i) => (
-                                                        <li key={i} className="social-list">
-                                                            <span className="social-icon">
-                                                                <img src={social.icon} alt="Facebook" />
-                                                            </span>
-                                                            <a className={SinHala.className} href={social.link}>alpagoproperties</a>
-                                                        </li>
-                                                    ))
-                                                }
-
-                                                {/* 
                                                 <li className="social-list">
                                                     <span className="social-icon">
                                                         <img src="/assets/icons/facebook.svg" alt="Facebook" />
@@ -86,7 +63,7 @@ const ContactDetail = () => {
                                                         <AiFillLinkedin />
                                                     </span>
                                                     <a className={SinHala.className} href="">alpagoproperties</a>
-                                                </li> */}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

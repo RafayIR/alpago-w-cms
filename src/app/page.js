@@ -1,18 +1,15 @@
-import HomePage from '../page/homepage'
-import Provider from "./_provider/provider";
-import { getHomePageData } from './_fetchData/index';
+'use client'
+import HomePage from "./home/page";
+import WebsiteLoader from '../components/websiteloader/WebsiteLoader'
+import { ReactLenis } from 'lenis/react'
 
-
-
-export default async function Home() {
-
-  const data = await getHomePageData()
-
+export default function Home() {
   return (
     <>
-      <Provider>
-        <HomePage data={data} />
-      </Provider>
+      <ReactLenis root>
+        <WebsiteLoader />
+        <HomePage />
+      </ReactLenis>
     </>
   );
 }

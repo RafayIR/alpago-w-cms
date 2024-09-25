@@ -131,8 +131,6 @@ export const Rufo = localfont({
     variable: '--font--rufo'
 })
 
-
-
 export const StadMitte = localfont({
     src: [
         {
@@ -149,8 +147,6 @@ export const StadMitte = localfont({
     ],
     variable: '--font--stadmitte'
 })
-
-
 
 
 export const SinHala = localfont({

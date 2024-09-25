@@ -1,46 +1,35 @@
 'use client'
 import React from "react"
-import dynamic from "next/dynamic";
 import Header from "../../layout/header/header";
 import Footer from "../../layout/footer/footer";
 import BannerHome from "../../components/banner/banner";
 import HomeDesc from "../../components/desc/HomeDesc";
 import HomeProject from "../../components/project/Project";
+import Awards from "../../components/awards/Awards";
 import Associate from "../../components/expertise/associate"
 import Granduer from "../../components/grandeur/grandeur";
 import HomeInsight from "../../components/insights/HomeInsight"
-
-const Awards = dynamic(() => import('../../components/awards/Awards'), {
-    ssr: true,
-    loading: () => <p>loading..</p>
-})
-const HomeNews = dynamic(() => import('../../components/homenews/HomeNews'), {
-    loading: () => <p>loading..</p>
-})
-// import HomeNews from "../../components/homenews/HomeNews";
+import HomeNews from "../../components/homenews/HomeNews";
+import BrandArea from '../../components/brands/BrandArea';
 import GranduerNew from '../../components/grandeur/graduerNew';
-import ProvideData from "../../hooks/useGetData";
 
-const Home = ({ data }) => {
-
-
+const Home = () => {
 
     return (
         <>
             <Header />
 
             <main>
-                <ProvideData data={data} >
-                    <BannerHome />
-                    <HomeDesc home={true} />
-                    <HomeProject />
-                    <Associate />
-                    <GranduerNew />
-                    {/* <HomeInsight /> */}
-                    <Awards />
-                    {/* <Granduer /> */}
-                    <HomeNews home={true} />
-                </ProvideData>
+                <BannerHome />
+                <HomeDesc home={true} />
+                <HomeProject />
+                {/* <BrandArea /> */}
+                <Associate />
+                <GranduerNew />
+                {/* <Granduer /> */}
+                {/* <HomeInsight /> */}
+                {/* <Awards /> */}
+                <HomeNews home={true} />
             </main>
             <Footer />
         </>

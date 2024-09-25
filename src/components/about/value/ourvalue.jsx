@@ -1,16 +1,13 @@
 'use client'
-import { Rufo, SinHala, StadMitte } from '../../../app/font'
+import { HalvarEng, Rufo, SinHala, StadMitte } from '../../../app/font'
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import TextAnimation from '../../../hooks/TextAnimation';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
-import { useData } from '../../../hooks/useGetData';
 
 const OurValue = () => {
-    const data = useData()
-    const ourValue = data?.data?.content?.values
 
 
     return (
@@ -72,18 +69,46 @@ const OurValue = () => {
                                             }
                                         }}
                                         className="swiper-container al-service-active">
-                                        {
-                                            ourValue?.map((value, i) => (
-                                                <SwiperSlide key={i}>
-                                                    <div className='content-para'>
-                                                        <p className={`${SinHala.className}`}>
-                                                            <span className='text-white'> {value.valuesPara1} </span>
-                                                            {value.valuesPara2}
-                                                        </p>
-                                                    </div>
-                                                </SwiperSlide>
-                                            ))
-                                        }
+                                        <SwiperSlide>
+                                            <div className='content-para'>
+                                                <p className={`${SinHala.className}`}>
+                                                    <span className='text-white'> SOLIDITY, STABILITY. </span>
+                                                    WE STRIVE TO DO EVERYTHING WE TOUCH WITH MAXIMUM ATTENTION, COMPLETE IMMERSION IN DETAILS,
+                                                    ACCORDING TO A VERIFIED AND REFINED SYSTEM OF ACTIONS.
+                                                </p>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='content-para'>
+                                                <p className={`${SinHala.className}`}>
+                                                    <span className='text-white'> COMPETENCE, CONSCIENTIOUSNESS. </span>
+                                                    DESPITE ON YEARS EXPERIENCE,
+                                                    WE NOT RELAX AND SAVE TO TO MYSELF HIGH PROFESSIONAL REQUIREMENTS.
+                                                    AND WE PROUD WHAT CAN THEM CORRESPOND.
+                                                </p>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className='content-para'>
+                                                <p className={`${SinHala.className}`}>
+                                                    <span className='text-white'>
+                                                        QUALITY, EFFICIENCY.
+                                                    </span>
+                                                    WE WE STRIVE DO OUR PROJECTS SO, TO BE PROUD THEM:
+                                                    ONLY EFFECTIVE TECHNICAL SOLUTIONS AND AESTHETICALLY FLAWLESS IMPLEMENTATION.
+                                                </p>
+                                            </div>
+                                        </SwiperSlide>
+
+                                        <SwiperSlide>
+                                            <div className='content-para'>
+                                                <p className={`${SinHala.className}`}>
+                                                    <span className='text-white'> COMPETENCE, CONSCIENTIOUSNESS.</span> DESPITE ON YEARS EXPERIENCE,
+                                                    WE NOT RELAX AND SAVE TO TO MYSELF HIGH PROFESSIONAL REQUIREMENTS.
+                                                    AND WE PROUD WHAT CAN THEM CORRESPOND.
+                                                </p>
+                                            </div>
+                                        </SwiperSlide>
                                     </Swiper>
                                 </div>
                             </div>

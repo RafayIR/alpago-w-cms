@@ -1,17 +1,10 @@
 import { Halvar } from '../font';
-import { getContactData } from "../_fetchData";
 
 
-export const generateMetadata = async () => {
-    let metadata = await getContactData()
-
-
-    return {
-        title: metadata?.data?.meta_title || "Contact Us",
-        description: metadata?.data?.meta_description || "Contact Us",
-    }
-}
-
+export const metadata = {
+    title: "Contact",
+    description: "",
+};
 
 export default function RootLayout({ children }) {
     return (

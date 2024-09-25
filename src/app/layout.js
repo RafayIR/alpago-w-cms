@@ -1,18 +1,12 @@
 
 import '../styles/index.scss';
 import { Halvar } from './font';
-import { getHomePageData } from './_fetchData/index';
 
 
-
-export const generateMetadata = async () => {
-  let metadata = await getHomePageData()
-  return {
-    title: metadata?.data?.meta_title || "Alpago Properties",
-    description: metadata?.data?.meta_description || "Alpago Properties",
-  }
-}
-
+export const metadata = {
+  title: "Alpago Properties",
+  description: "",
+};
 
 export default function RootLayout({ children }) {
   return (

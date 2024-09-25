@@ -33,7 +33,7 @@ const HomeInsight = () => {
                             <div className="row">
                                 <div className="col-lg-6 col-xl-6">
                                     {
-                                        data?.map((item, index) => (
+                                        data.map((item, index) => (
                                             <AccordionItem
                                                 key={index}
                                                 heading={item.heading}

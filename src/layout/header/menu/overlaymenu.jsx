@@ -3,9 +3,10 @@ import { RxCross1 } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
 import { StadMitte } from '../../../app/font'
+import { NavMenuOverlay } from "./MenuData";
 
 
-const OverLayMenu = ({ showOverLay, toggleOverlay, toggleHover, menuData }) => {
+const OverLayMenu = ({ showOverLay, toggleOverlay , toggleHover }) => {
     return (
         <>
             <div className={`overlay-menu-wrapper ${showOverLay ? 'active' : ''}`}>
@@ -27,7 +28,7 @@ const OverLayMenu = ({ showOverLay, toggleOverlay, toggleHover, menuData }) => {
                         <div className="menu-mobile-list">
                             <ul className="menu-link-container">
                                 {
-                                    menuData?.NavMenuOverlay?.map((item, i) => (
+                                    NavMenuOverlay?.map((item, i) => (
                                         <li key={i}>
                                             <Link href={item.path} onClick={item.hasSubMenu ? toggleHover : null} className={`${StadMitte.className} menu-mobile-link text--heading`}>
                                                 {item.name}

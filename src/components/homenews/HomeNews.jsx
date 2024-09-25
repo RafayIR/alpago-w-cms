@@ -1,36 +1,48 @@
 'use client'
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { HiPlus } from 'react-icons/hi2';
 import Link from 'next/link';
-import { Rufo, StadMitte } from '../../app/font';
-import { useData } from '../../hooks/useGetData';
-import useFormattedData from '../../hooks/useFormattedDate'
+import { Rufo, StadMitte, HalvarEng, Halvar } from '../../app/font';
 
+const mobileCardData = [
+    {
+        imgSrc: 'assets/img/news/luxury-awards.png',
+        alt: 'Dubair-Villa',
+        title: 'Luxury Reimagined - Alpago Properties Recognized for Two Prestigious Awards',
+        newsDetail: '/news-detail',
+        date: {
+            day: '01.10',
+            year: '2024'
+        }
+    },
+    {
+        imgSrc: 'assets/img/news/palm-flower-news.png',
+        alt: 'Dubair-Villa',
+        title: 'Alpago Properties Pioneers Smart Living with WiredScore’s Certification for Homes',
 
-const HomeNews = ({ home, expertise }) => {
-    const data = useData()
-    const [day, setDay] = useState(null)
-    const [month, setMonth] = useState(null)
-    const [year, setYear] = useState(null)
-    const homeNewsData = data?.news
+        date: {
+            day: '01.10',
+            year: '2024'
+        }
+    },
+    {
+        imgSrc: 'assets/img/news/wired-score.png',
+        alt: 'Dubair-Villa',
+        title: 'Palm Flower’s Uncompromised Architecture Collaboration Announcement with Foster + Partners',
+
+        date: {
+            day: '01.10',
+            year: '2024'
+        }
+    }
+];
+
+const HomeNews = ({ home, title, expertise }) => {
     const component = useRef();
     const slider = useRef();
-
-
-    const formatDate = (date) => {
-        const newDate = new Date(date);
-        const day = newDate?.getDate().toString().padStart(2, '0'); // format day with leading zero
-        const month = (newDate?.getMonth() + 1).toString().padStart(2, '0'); // months are 0-indexed, so add 1
-        const year = newDate?.getFullYear();
-
-        return { day, month, year }
-    }
-
-
-
-    useEffect(() => {
+    useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
 
 
@@ -63,92 +75,29 @@ const HomeNews = ({ home, expertise }) => {
                     <div ref={component} className="container-fluid p-0">
                         <div className="news-wrapper-heading">
                             <h2 className={`${StadMitte.className} leading-trim`}>
-                                NEWS
+                                IN THE FOCUS
                             </h2>
                         </div>
                         <div className="container-fluid">
                             <div ref={slider} className='row news-row px-4 m-0'>
-                                <div className='col-1 left px-4'></div>
-                                {homeNewsData?.slice(0, 4)?.map((item, index) => {
+                                <div className='col-1 left px-4'>
 
-                                    let { day, month, year } = formatDate(item.date)
+                                </div>
 
-                                    return (
-                                        <div key={index} className='col-md-9 col-12 left px-4 news-col'>
-                                            <div className="news-card gsap-desktop">
-                                                <Link className="card card--project btn-container" href={item.slug}>
-                                                    <div className="card-sizer"></div>
-
-                                                    <div className="card-background-inner">
-                                                        <div className="card__background d-none d-lg-block">
-                                                            <svg aria-hidden="true" className="card__outline">
-                                                                <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
-                                                                <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
-                                                            </svg>
-                                                        </div>
-
-                                                        <div className="card-img" style={{ height: '300px' }}>
-                                                            <img style={{ height: '100%', objectFit: 'cover' }} src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + item?.home_thumbnail_image || '/assets/img/news/news-dubai-palm.webp'} alt="Dubai-Villa" />
-                                                            <div className='plus-sign'>
-                                                                <span className='sign-wrapper'>
-                                                                    <HiPlus />
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="card-text">
-                                                        <div className="col--xs-6 col--md-2 pl-1:md card-text-title">
-                                                            <p className={`${StadMitte.className} leading-trim card-title`}>
-                                                                {item.title}
-                                                            </p>
-                                                        </div>
-                                                        <div className="col--xs-6 col--md-1 card-text-date">
-                                                            <time>
-                                                                <span className="card-text-date-desk">
-                                                                    <span className={`${StadMitte.className} leading-trim`}>
-                                                                        {day}.{month}
-                                                                    </span>
-                                                                    <span className="card-text-date-desk-sm leading-trim">
-                                                                        {year}
-                                                                    </span>
-                                                                </span>
-                                                            </time>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* 
-            <section className={`news-wrapper ${home ? 'white' : ''}  d-block d-md-none news-mobile`}>
-                <div className="container-fluid p-0">
-                    <div className="news-wrapper-heading">
-                        <h2 className={`${StadMitte.className} leading-trim`}>
-                            NEWS
-                        </h2>
-                    </div>
-                    <div className='row m-0'>
-                        {homeNewsData?.slice(0, 10)?.map((card, index) => {
-                            const { day, month, year } = useFormattedData(item.date);
-
-
-                            return (
-                                < div key={index} className='col-md-9 col-12 p-0' >
-                                    <div className="news-card">
-                                        <Link className="card card--project btn-container" href={card.slug}>
+                                <div className='col-md-9 col-12 left px-4 news-col'>
+                                    <div className="news-card gsap-desktop">
+                                        <Link className="card card--project btn-container" href="/news">
                                             <div className="card-sizer"></div>
 
                                             <div className="card-background-inner">
+                                                <div className="card__background d-none d-lg-block">
+                                                    <svg aria-hidden="true" className="card__outline">
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                    </svg>
+                                                </div>
                                                 <div className="card-img">
-                                                    <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + card?.image || '/assets/img/news/news-dubai-palm.webp'} alt={card.alt} />
-
+                                                    <img src="assets/img/news/luxury-awards.png" alt="Dubai-Villa" />
                                                     <div className='plus-sign'>
                                                         <span className='sign-wrapper'>
                                                             <HiPlus />
@@ -157,19 +106,20 @@ const HomeNews = ({ home, expertise }) => {
                                                 </div>
                                             </div>
                                             <div className="card-text">
-                                                <div className="col col--xs-6 col--md-2 pl-1:md card-text-title">
-                                                    <p className="leading-trim card-title">
-                                                        {card.title}
+                                                <div className="col--xs-6 col--md-2 pl-1:md card-text-title">
+                                                    <p className={`${Rufo.className} leading-trim card-title`}>
+                                                        Luxury Reimagined - Alpago Properties Recognized for Two Prestigious
+                                                        Awards
                                                     </p>
                                                 </div>
-                                                <div className="col col--xs-6 col--md-1 card-text-date d-none d--block">
+                                                <div className="col--xs-6 col--md-1 card-text-date">
                                                     <time dateTime="2021-11-01" className="row">
                                                         <span className="card-text-date-desk">
-                                                            <span className={`${Rufo.className} leading-trim`}>
-                                                                {day}.{month}
+                                                            <span className={`${StadMitte.className} leading-trim`}>
+                                                                01.10
                                                             </span>
                                                             <span className="card-text-date-desk-sm leading-trim">
-                                                                {year}
+                                                                2024
                                                             </span>
                                                         </span>
                                                     </time>
@@ -178,11 +128,154 @@ const HomeNews = ({ home, expertise }) => {
                                         </Link>
                                     </div>
                                 </div>
-                            )
-                        })}
+
+
+
+                                <div className='col-md-9 col-12 px-4 news-col'>
+                                    <div className="news-card gsap-desktop">
+                                        <Link className="card card--project btn-container" href="/news">
+                                            <div className="card-sizer"></div>
+                                            <div className="card-background-inner">
+                                                <div className="card__background d-none d-lg-block">
+                                                    <svg aria-hidden="true" className="card__outline">
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                    </svg>
+                                                </div>
+                                                <div className="card-img">
+                                                    <img src="assets/img/news/palm-flower-news.png" alt="Dubai-Villa" />
+                                                    <div className='plus-sign'>
+                                                        <span className='sign-wrapper'>
+                                                            <HiPlus />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-text">
+                                                <div className="col--xs-6 col--md-2 pl-1:md card-text-title">
+                                                    <p className={`${Rufo.className} leading-trim card-title`}>
+                                                        Alpago Properties Pioneers Smart Living with WiredScore’s Certification for Homes
+                                                    </p>
+                                                </div>
+                                                <div className="col--xs-6 col--md-1 card-text-date">
+                                                    <time dateTime="2021-11-01" className="row">
+                                                        <span className="card-text-date-desk">
+                                                            <span className={`${StadMitte.className} leading-trim`}>
+                                                                01.10
+                                                            </span>
+                                                            <span className="card-text-date-desk-sm leading-trim">
+                                                                2024
+                                                            </span>
+                                                        </span>
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+
+
+
+                                <div className='col-md-9 col-12 px-4 news-col'>
+                                    <div className="news-card gsap-desktop">
+                                        <Link className="card card--project btn-container" href="/news">
+                                            <div className="card-sizer"></div>
+                                            <div className="card-background-inner">
+                                                <div className="card__background d-none d-lg-block">
+                                                    <svg aria-hidden="true" className="card__outline">
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                        <rect x="0.5" y="0.5" rx="1" width="2" height="2" pathLength="1"></rect>
+                                                    </svg>
+                                                </div>
+                                                <div className="card-img">
+                                                    <img src="assets/img/news/wired-score.png" alt="Dubai-Villa" />
+                                                    <div className='plus-sign'>
+                                                        <span className='sign-wrapper'>
+                                                            <HiPlus />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-text">
+                                                <div className="col--xs-6 col--md-2 pl-1:md card-text-title">
+                                                    <p className={`${Rufo.className} leading-trim card-title`}>
+                                                        Palm Flower’s Uncompromised Architecture Collaboration Announcement
+                                                        with Foster + Partners
+                                                    </p>
+                                                </div>
+                                                <div className="col--xs-6 col--md-1 card-text-date">
+                                                    <time dateTime="2021-11-01" className="row">
+                                                        <span className="card-text-date-desk">
+                                                            <span className={`${StadMitte.className} leading-trim`}>
+                                                                01.10
+                                                            </span>
+                                                            <span className="card-text-date-desk-sm leading-trim">
+                                                                2024
+                                                            </span>
+                                                        </span>
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section > */}
+            </section>
+
+            <section className={`news-wrapper ${home ? 'white' : ''}  d-block d-md-none news-mobile`}>
+                <div className="container-fluid p-0">
+                    <div className="news-wrapper-heading">
+                        <h2 className={`${StadMitte.className} leading-trim`}>
+                            IN THE FOCUS
+                        </h2>
+                    </div>
+                    <div className='row m-0'>
+                        {mobileCardData.map((card, index) => (
+                            <div key={index} className='col-md-9 col-12 p-0'>
+                                <div className="news-card">
+                                    <Link className="card card--project btn-container" href="/news">
+                                        <div className="card-sizer"></div>
+
+                                        <div className="card-background-inner">
+                                            <div className="card-img">
+                                                <img src={card.imgSrc} alt={card.alt} />
+
+                                                <div className='plus-sign'>
+                                                    <span className='sign-wrapper'>
+                                                        <HiPlus />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card-text">
+                                            <div className="col col--xs-6 col--md-2 pl-1:md card-text-title">
+                                                <p className={`leading-trim card-title ${Rufo.className}`}>
+                                                    {card.title}
+                                                </p>
+                                            </div>
+                                            <div className="col col--xs-6 col--md-1 card-text-date d-none d--block">
+                                                <time dateTime="2021-11-01" className="row">
+                                                    <span className="card-text-date-desk">
+                                                        <span className={`${Rufo.className} leading-trim`}>
+                                                            {card.date.day}
+                                                        </span>
+                                                        <span className="card-text-date-desk-sm leading-trim">
+                                                            {card.date.year}
+                                                        </span>
+                                                    </span>
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section >
         </>
     )
 }

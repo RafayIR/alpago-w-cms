@@ -1,10 +1,7 @@
-import { HalvarEng, Rufo, StadMitte } from "../../app/font";
-import { useData } from "../../hooks/useGetData";
+import { HalvarEng, Rufo, SinHala, StadMitte } from "../../app/font";
 
 
 const ProjectPros = () => {
-    const data = useData()
-    const projectProsData = data?.data?.distanceToDestination[0]?.detail_distance
 
 
     return (
@@ -26,22 +23,7 @@ const ProjectPros = () => {
                                 <div className="project-pros-desc">
                                     <div className="pros-count">
                                         <div className="row">
-
-                                            {
-                                                projectProsData?.map((item, i) => (
-                                                    <div key={i} className={`col-lg-4 col-md-4 col-sm-6 ${i == 2 ? 'col-12' : 'col-6'}`}>
-                                                        <div className="count-wrapper">
-                                                            <div className="count">
-                                                                <h4 className={Rufo.className}>{item.detail_distance_minute || ''}</h4>
-                                                                <span className={Rufo.className}>{item.detail_distance_title1 || ''}</span>
-                                                                <h5 className={HalvarEng.className}>{item.detail_distance_title2 || ''}</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            }
-
-                                            {/* <div className="col-lg-4 col-md-4 col-sm-6 col-6">
+                                            <div className="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div className="count-wrapper">
                                                     <div className="count">
                                                         <h4 className={Rufo.className}>18</h4>
@@ -61,6 +43,7 @@ const ProjectPros = () => {
                                                 </div>
                                             </div>
 
+
                                             <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                                                 <div className="count-wrapper">
                                                     <div className="count">
@@ -69,7 +52,7 @@ const ProjectPros = () => {
                                                         <h5 className={HalvarEng.className}>DUBAI INTERNATIONAL AIRPORT</h5>
                                                     </div>
                                                 </div>
-                                            </div> */}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

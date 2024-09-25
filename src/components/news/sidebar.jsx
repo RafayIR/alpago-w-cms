@@ -2,21 +2,11 @@
 import { Halvar, Rufo, StadMitte } from "../../app/font"
 import Image from "next/image";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import useFormattedDate from '../../hooks/useFormattedDate';
 
-const SideBar = ({ blogs, titleData, data, moreData }) => {
-    const date = data?.data?.news?.date
-    const { day, month, year } = useFormattedDate(date);
-    const [listData, setListData] = useState()
-    const [morelistData, setMoreListData] = useState()
+
+const SideBar = ({ blogs }) => {
+
     const windowWidth = useWindowWidth()
-
-    useEffect(() => {
-        setListData(titleData)
-        setMoreListData(moreData)
-    }, [listData])
 
     return (
         <>
@@ -30,24 +20,48 @@ const SideBar = ({ blogs, titleData, data, moreData }) => {
 
                     <div className={`sidebar-desc  ${blogs ? 'blogs-sidebar' : ''}`}>
                         <ul>
-                            {
-                                listData?.map((item, i) => {
-                                    return (
-                                        <li key={i} className={`${StadMitte.className} ${blogs ? '' : 'active'}`}>
-                                            {
-                                                blogs && (
-                                                    <span className={Rufo.className}>
-                                                        {i < 9 ? `0${i + 1}` : i + 1}
-                                                    </span>
-                                                )
-                                            }
-
-                                            {item?.detail_title}
-                                        </li>
+                            <li className={`${StadMitte.className} ${blogs ? '' : 'active'}`}>
+                                {
+                                    blogs && (
+                                        <span className={Rufo.className}>
+                                            01
+                                        </span>
                                     )
-                                })
+                                }
 
-                            }
+                                Casa Del Sole Sets UAE Real Estate Record
+
+                            </li>
+                            <li className={StadMitte.className}>
+                                {
+                                    blogs && (
+                                        <span className={Rufo.className}>
+                                            02
+                                        </span>
+                                    )
+                                }
+                                Strategic Location
+                            </li>
+                            <li className={StadMitte.className}>
+                                {
+                                    blogs && (
+                                        <span className={Rufo.className}>
+                                            03
+                                        </span>
+                                    )
+                                }
+                                Connectivity and Infrastructure
+                            </li>
+                            <li className={StadMitte.className}>
+                                {
+                                    blogs && (
+                                        <span className={Rufo.className}>
+                                            04
+                                        </span>
+                                    )
+                                }
+                                A Booming Tourism Industry
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -63,9 +77,9 @@ const SideBar = ({ blogs, titleData, data, moreData }) => {
                                     </h3>
 
                                     <div className={`date ${Rufo.className}`}>
-                                        {`${day}.${month}`}
+                                        01.10
                                         <span className={Halvar.className}>
-                                            {year}
+                                            2024
                                         </span>
                                     </div>
                                 </div>
@@ -89,31 +103,49 @@ const SideBar = ({ blogs, titleData, data, moreData }) => {
                                     </h3>
 
                                     <div className="mini-news-wrapper">
-                                        {
-                                            morelistData?.slice(0, 5)?.map((item, i) => {
-                                                return (
-                                                    <Link key={i} style={{ textDecoration: 'none', color: 'white' }} target="_blank" href={item?.link} className={`row align-items-center  ${i === item.length - 1 ? '' : 'mb-4'}`}>
-                                                        <div className="col-lg-3">
-                                                            <div className="img-wrapper">
-                                                                <Image src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + item?.image} width={222} height={222} />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-lg-9">
-                                                            <div className="mini-news-desc">
-                                                                <p className={StadMitte.className}>
-                                                                    {item?.title}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                )
-                                            })
-                                        }
+                                        <div className="row align-items-center mb-4">
+
+                                            <div className="col-lg-3">
+                                                <div className="img-wrapper">
+                                                    <Image src='/assets/img/news-blog-image/mini-news/mini-news-1.png' width={222} height={222} />
+
+                                                </div>
+                                            </div>
+
+                                            <div className="col-lg-9">
+                                                <div className="mini-news-desc">
+                                                    <p className={StadMitte.className}>
+                                                        Dubai to get Palm Flower with one penthouse per floor
+                                                        Dubai to
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row align-items-center ">
+                                            <div className="col-lg-3">
+                                                <div className="img-wrapper">
+                                                    <Image src='/assets/img/news-blog-image/mini-news/mini-news-2.png' width={222} height={222} />
+
+                                                </div>
+                                            </div>
+
+                                            <div className="col-lg-9">
+                                                <div className="mini-news-desc">
+                                                    <p className={StadMitte.className}>
+                                                        Dubai to get Palm Flower with one penthouse per floor
+                                                        Dubai to
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                             </>
                         )
                     }
+
+
                 </div>
             </aside>
         </>

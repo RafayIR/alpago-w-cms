@@ -1,19 +1,17 @@
-
+'use client'
 import About from '../../page/aboutpage';
-import Provider from '../_provider/provider';
-import { getAboutData } from '../_fetchData/index'
+import WebsiteLoader from "../../components/websiteloader/WebsiteLoader";
+import { ReactLenis } from 'lenis/react'
 
+const AboutPage = () => {
 
-
-const AboutPage = async () => {
-
-    const data = await getAboutData()
 
     return (
         <>
-            <Provider>
-                <About data={data} />
-            </Provider>
+            <ReactLenis root>
+                <WebsiteLoader />
+                <About />
+            </ReactLenis>
         </>
     )
 }

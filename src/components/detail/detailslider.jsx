@@ -5,32 +5,22 @@ import { useState } from 'react';
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import 'swiper/scss';
 import { StadMitte } from '../../app/font';
-import { useData } from '../../hooks/useGetData';
-
 
 const DetailSlider = () => {
     const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-    const data = useData()
-    const detailSliderData = data?.data?.detailSlide?.projectAmenities?.detail_amenities
-
 
     const handleSlideChange = (swiper) => {
         setActiveSlideIndex(swiper.realIndex); // Update active slide index on slide change
     };
 
 
-
-    const projectAmenitiesTitle = detailSliderData[activeSlideIndex]?.detail_amenities_title;
-
-
-
-    // const projectAmenities = [
-    //     `Swimming Pools`,
-    //     'Private Beach Access',
-    //     'In Room Dining',
-    //     'Luxurious Rooms and Suites',
-    //     'Valet Parking',
-    // ]
+    const projectAmenities = [
+        `Swimming Pools`,
+        'Private Beach Access',
+        'In Room Dining',
+        'Luxurious Rooms and Suites',
+        'Valet Parking',
+    ]
 
     return (
         <>
@@ -42,7 +32,7 @@ const DetailSlider = () => {
                                 <div className='amenities-wrapper'>
                                     <ul>
                                         <li className={StadMitte.className}>
-                                            {projectAmenitiesTitle}
+                                            {projectAmenities[activeSlideIndex]}
                                         </li>
                                     </ul>
                                 </div>
@@ -87,16 +77,32 @@ const DetailSlider = () => {
                                     }
                                 }}
                                 className="swiper-container al-service-active">
-                                {
-                                    detailSliderData?.map((item, i) => (
-                                        <SwiperSlide key={i} className="swiper-slide">
-                                            <div className='img-wrapper'>
-                                                <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + item.detail_amenities_gallery_img || `/assets/img/project-detail/detail-slider/slider-img-2.webp`} alt="Detail Image" />
-                                            </div>
-                                        </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='img-wrapper'>
+                                        <img src="/assets/img/project-detail/detail-slider/slider-img-1.webp" alt="Detail Image" />
+                                    </div>
 
-                                    ))
-                                }
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='img-wrapper'>
+                                        <img src="/assets/img/project-detail/detail-slider/slider-img-2.webp" alt="Detail Image" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='img-wrapper'>
+                                        <img src="/assets/img/project-detail/detail-slider/slider-img-3.webp" alt="Detail Image" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='img-wrapper'>
+                                        <img src="/assets/img/project-detail/detail-slider/slider-img-4.webp" alt="Detail Image" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='img-wrapper'>
+                                        <img src="/assets/img/project-detail/detail-slider/slider-img-5.webp" alt="Detail Image" />
+                                    </div>
+                                </SwiperSlide>
                             </Swiper>
 
                         </div>

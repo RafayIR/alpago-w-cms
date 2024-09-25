@@ -1,17 +1,18 @@
-import Provider from '../_provider/provider';;
+'use client'
+import { ReactLenis } from 'lenis/react';
 import Blogs from '../../page/blogpage';
-import { getBlogsData } from '../_fetchData/index'
+import WebsiteLoader from '../../components/websiteloader/WebsiteLoader';
 
 
-const BlogsPage = async ({ searchParams }) => {
+const BlogsPage = () => {
 
-    let data = await getBlogsData(searchParams)
 
     return (
         <>
-            <Provider>
-                <Blogs data={data} />
-            </Provider>
+            <ReactLenis root>
+                <WebsiteLoader />
+                <Blogs />
+            </ReactLenis>
         </>
     )
 }

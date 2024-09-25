@@ -1,22 +1,18 @@
 import { Rufo, StadMitte, Halvar } from "../../app/font";
-import { useData } from "../../hooks/useGetData";
-import useFormattedDate from "../../hooks/useFormattedDate";
+
 
 
 
 
 const BlogsBanner = () => {
-    const data = useData()
-    const date = data?.data?.blog?.date
-    const { day, month, year } = useFormattedDate(date)
-    const blogBannerData = data?.data?.banner
+
 
 
     return (
         <>
             <div className='blogs-detail-banner'>
                 <div className="banner-img">
-                    <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + blogBannerData?.bannerImg} alt="Banner Image" />
+                    <img src="/assets/img/blogs/blog-detail-img.png" alt="Banner Image" />
 
                     <div className='banner--content'>
                         <div className="pill-txt">
@@ -26,7 +22,10 @@ const BlogsBanner = () => {
                         </div>
                         <div className='banner-heading'>
                             <h1 className={`${StadMitte.className}`}>
-                                {blogBannerData?.bannerTitle}
+                                Investing in Dubai Real Estate :
+                            </h1>
+                            <h1 className={`${StadMitte.className}`}>
+                                A Gateway to Luxury and High Returns
                             </h1>
                         </div>
                     </div>
@@ -37,9 +36,9 @@ const BlogsBanner = () => {
                         </h3>
 
                         <div className={`date ${Rufo.className}`}>
-                            {`${day}.${month}`}
+                            01.10
                             <span className={Halvar.className}>
-                                {year}
+                                2024
                             </span>
                         </div>
                     </div>

@@ -98,7 +98,7 @@ const AboutTeam = () => {
                                     }}
                                     className="swiper-container al-service-active">
                                     {
-                                        aboutTeam?.map((item, i) => (
+                                        aboutTeam.map((item, i) => (
                                             <SwiperSlide key={i}>
                                                 <div className='content'>
                                                     <div

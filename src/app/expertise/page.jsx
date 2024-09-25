@@ -1,17 +1,19 @@
+'use client'
+
 import Expertise from '../../page/expertisepage';
-import Provider from '../_provider/provider';
-import { getExpertiseData } from '../_fetchData';
+import { ReactLenis } from 'lenis/react';
+import WebsiteLoader from '../../components/websiteloader/WebsiteLoader';
 
 
+const DetailPage = () => {
 
 
-const DetailPage = async () => {
-    const data = await getExpertiseData()
     return (
         <>
-            <Provider>
-                <Expertise data={data} />
-            </Provider>
+            <ReactLenis root>
+                <WebsiteLoader />
+                <Expertise />
+            </ReactLenis>
         </>
     )
 }

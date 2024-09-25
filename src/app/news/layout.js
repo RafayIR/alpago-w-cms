@@ -1,5 +1,5 @@
 import { Halvar } from '../font';
-import { getNewLandingdata } from '../_fetchData';
+
 
 export const metadata = {
     title: "News",

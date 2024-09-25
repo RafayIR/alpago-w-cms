@@ -5,11 +5,33 @@ import Link from "next/link"
 import { GrFacebookOption } from "react-icons/gr";
 import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { AiFillLinkedin } from "react-icons/ai";
-import axios from "axios";
+
+
+const FooterMenu = [
+    {
+        title: 'CASA DEL SOLE',
+        path: '/detail'
+    },
+    {
+        title: 'PALM FLOWER',
+        path: '/detail'
+    },
+    {
+        title: 'SOLE MARE',
+        path: '/detail'
+    },
+    {
+        title: 'RIVA DE LUSSO',
+        path: '/detail'
+    },
+    {
+        title: 'KURAL VISTA',
+        path: '/detail'
+    },
+]
 
 const Footer = ({ noMargin }) => {
     const [footerHeight, setFooterHeight] = useState(0);
-    const [footerData, setFooterData] = useState(null)
     const footerRef = useRef(null);
 
     // Function to handle footer height calculation
@@ -21,14 +43,6 @@ const Footer = ({ noMargin }) => {
     };
 
     useEffect(() => {
-
-        const fetchFooterData = async () => {
-            const resp = await axios.get('https://digitalgraphiks.co.uk/demo/alpago-properties-cms/api/get_footer')
-            setFooterData(resp?.data?.data)
-        }
-
-        fetchFooterData()
-
         handleFooterHeight(); // Calculate footer height initially
 
         // Recalculate footer height on window resize
@@ -60,22 +74,27 @@ const Footer = ({ noMargin }) => {
                                 <div className="col-lg-4 col-md-4">
                                     <div className="footer-heading mb-2">
                                         <h4 className={`${SinHala.className}`}>
-                                            {footerData?.footer_content?.footer_section1_title}
+                                            ALPAGO PROPERTIES
                                         </h4>
                                     </div>
                                     <div className="footer-desc">
                                         <p className={`${SinHala.className}`}>
-                                            {footerData?.footer_content?.footer_description}
+                                            As a distinguished subsidiary of the esteemed Alpago Group, we cater to every detail in
+                                            developing residential and commercial projects of unparalleled excellence, seamlessly
+                                            blending simplicity with sophistication.
                                         </p>
                                     </div>
                                     <div className="footer-heading" style={{ marginBottom: '4px' }} >
                                         <h4 className={`${SinHala.className}`} style={{ fontSize: '16px' }} >
-                                            {footerData?.footer_content?.footer_section1_location_title}
+                                            Location:
                                         </h4>
                                     </div>
                                     <div className="footer-desc">
                                         <p className={`${SinHala.className}`} style={{ fontSize: '13px' }}>
-                                            {footerData?.footer_content?.footer_section1_location_details}
+                                            Office 2603, Level 26, Boulevard Plaza
+                                        </p>
+                                        <p className={`${SinHala.className}`} style={{ fontSize: '13px' }}>
+                                            Tower 1,Downtown Dubai, Dubai, UAE
                                         </p>
                                     </div>
                                 </div>
@@ -86,32 +105,42 @@ const Footer = ({ noMargin }) => {
 
                                         </div>
                                         <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 fst-col">
-                                            {
-                                                footerData?.pages?.map((item, i) => (
-                                                    <div key={i} className="footer-heading">
-                                                        <h4 className={`${SinHala.className}`}>
-                                                            <Link href={`/` + item.footer_section2_linksurl}>
-                                                                {item.footer_section2_linkstext}
-                                                            </Link>
-                                                        </h4>
-                                                    </div>
-                                                ))
-                                            }
+                                            <div className="footer-heading">
+                                                <h4 className={`${SinHala.className}`}>
+                                                    <Link href={'/'}>
+                                                        HOME
+                                                    </Link>
+                                                </h4>
+                                            </div>
+                                            <div className="footer-heading">
+                                                <h4 className={`${SinHala.className}`}>
+                                                    <Link href={'/about'}>
+                                                        COMPANY
+                                                    </Link>
+                                                </h4>
+                                            </div>
+                                            <div className="footer-heading">
+                                                <h4 className={`${SinHala.className}`}>
+                                                    <Link href={'/expertise'}>
+                                                        EXPERTISE
+                                                    </Link>
+                                                </h4>
+                                            </div>
                                         </div>
 
                                         <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-12 middle-col or-2">
                                             <div className="col-wrapper">
                                                 <div className="footer-heading">
                                                     <h4 className={`${SinHala.className}`}>
-                                                        {footerData?.footer_content?.footer_section3_title}
+                                                        PROJECTS
                                                     </h4>
                                                 </div>
                                                 <ul>
                                                     {
-                                                        footerData?.projects?.map((item, i) => (
+                                                        FooterMenu.map((item, i) => (
                                                             <li key={i}>
-                                                                <Link className={`${SinHala.className} light`} href={'/detail/' + item.footer_section3_linksurl}>
-                                                                    {item.footer_section3_linkstext}
+                                                                <Link className={`${SinHala.className} light`} href={item.path}>
+                                                                    {item.title}
                                                                 </Link>
                                                             </li>
                                                         ))
@@ -124,22 +153,24 @@ const Footer = ({ noMargin }) => {
                                             <div className="col-wrapper">
                                                 <div className="footer-heading">
                                                     <h4 className={`${SinHala.className}`}>
-                                                        {footerData?.footer_content?.footer_section4_title}
+                                                        MEDIA
                                                     </h4>
                                                 </div>
                                                 <ul>
-                                                    {footerData?.media?.map((item, i) => (
-                                                        <li key={i}>
-                                                            <Link className={`${SinHala.className} light`} href={'/' + item.footer_section4_linksurl}>
-                                                                {item.footer_section4_linkstext}
-                                                            </Link>
-                                                        </li>
-                                                    ))
-                                                    }
+                                                    <li>
+                                                        <Link className={`${SinHala.className} light`} href="">
+                                                            BLOGS
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link className={`${SinHala.className} light`} href="">
+                                                            NEWS
+                                                        </Link>
+                                                    </li>
                                                 </ul>
                                                 <div className="footer-heading mt-4">
                                                     <h4 className={`${SinHala.className}`}>
-                                                        {footerData?.footer_content?.footer_social_title}
+                                                        CONTACT
                                                     </h4>
                                                     <div className="social-wrapper" style={{ display: 'flex', alignItems: 'center' }}>
                                                         <span style={{
@@ -152,7 +183,7 @@ const Footer = ({ noMargin }) => {
                                                             justifyContent: 'center',
                                                             marginTop: 0
                                                         }}>
-                                                            <Link href={footerData?.footer_content?.fb_link || '#'} style={{
+                                                            <Link href={'#'} style={{
                                                                 fontSize: '20px',
                                                                 color: '#fff',
                                                                 lineHeight: '20px'
@@ -170,7 +201,7 @@ const Footer = ({ noMargin }) => {
                                                             justifyContent: 'center',
                                                             marginTop: 0
                                                         }}>
-                                                            <Link href={footerData?.footer_content?.insta_link || '#'} style={{
+                                                            <Link href={'#'} style={{
                                                                 fontSize: '20px',
                                                                 color: '#fff',
                                                                 lineHeight: '20px'
@@ -188,7 +219,7 @@ const Footer = ({ noMargin }) => {
                                                             justifyContent: 'center',
                                                             marginTop: 0
                                                         }}>
-                                                            <Link href={footerData?.footer_content?.linkedin_link || '#'} style={{
+                                                            <Link href={'#'} style={{
                                                                 fontSize: '20px',
                                                                 color: '#fff',
                                                                 lineHeight: '20px'
@@ -206,7 +237,7 @@ const Footer = ({ noMargin }) => {
                                                             justifyContent: 'center',
                                                             marginTop: 0
                                                         }}>
-                                                            <Link href={footerData?.footer_content?.yt_link || '#'} style={{
+                                                            <Link href={'#'} style={{
                                                                 fontSize: '20px',
                                                                 color: '#fff',
                                                                 lineHeight: '20px'
@@ -224,7 +255,7 @@ const Footer = ({ noMargin }) => {
                                                             justifyContent: 'center',
                                                             marginTop: 0
                                                         }}>
-                                                            <Link href={footerData?.footer_content?.tiktok_link || '#'} style={{
+                                                            <Link href={'#'} style={{
                                                                 fontSize: '20px',
                                                                 color: '#fff',
                                                                 lineHeight: '20px'
@@ -249,15 +280,12 @@ const Footer = ({ noMargin }) => {
                             <div className="row row--between-xs pt-1">
                                 <div className="col-lg-4 col-md-4 col-4">
                                     <p className={`${SinHala.className} leading-trim leading-trim my-0`}>
-                                        <Link target="_blank" href="/privacy-policy" style={{ color: 'white' }}>
-                                            Privacy Policy
-                                        </Link>
+                                        Privacy Policy
                                     </p>
                                 </div>
                                 <div className="col-lg-4 col-md-4 col-4">
                                     <div className="logo-icon">
-                                        <img src={`/assets/icons/alpago-logo-icon.svg`} alt="Logo Icon" />
-                                        {/* <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + footerData?.footer_content?.logo || `/assets/icons/alpago-logo-icon.svg`} alt="Logo Icon" /> */}
+                                        <img src="/assets/icons/alpago-logo-icon.svg" alt="Logo Icon" />
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-4 col-4">

@@ -6,18 +6,14 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 // Import Swiper React components
 import { Navigation, Autoplay, Pagination, } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/scss';
 import 'swiper/css/pagination';
-import { useData } from "../../hooks/useGetData";
 
 
 const Detailpros = () => {
     const mobileWidth = useWindowWidth()
     const [activeKey, setActiveKey] = useState(null);
-    const data = useData();
-    const detailData = data?.data?.detailData[0]
-
-
 
     const handleMouseEnter = (key) => {
         setActiveKey(key);
@@ -37,7 +33,7 @@ const Detailpros = () => {
                 <div className="pros-wrapper">
                     <div className="container-fluid p-0">
                         {
-                            detailData?.detail_features?.map((item, i) => (
+                            detailData.map((item, i) => (
                                 <Accordion key={i} activeKey={activeKey}>
                                     <Accordion.Item eventKey={i}
                                         onMouseEnter={mobileWidth > 767 ? () => handleMouseEnter(i) : undefined}
@@ -56,7 +52,7 @@ const Detailpros = () => {
                                                 <div className="col-lg-8 col-md-8 col-11">
                                                     <div className="pros-heading">
                                                         <h3 className={StadMitte.className}>
-                                                            {item.detail_features_title}
+                                                            {item.heading}
                                                         </h3>
                                                     </div>
                                                 </div>
@@ -100,10 +96,10 @@ const Detailpros = () => {
                                                                 }
                                                             }}
                                                             className="swiper-container">
-                                                            {item?.detail_features_gallery_img?.split(',').map((imgObj, i) => (
-                                                                < SwiperSlide key={i} >
+                                                            {item.image?.map((imgObj, i) => (
+                                                                <SwiperSlide key={i}>
                                                                     <div className="img-wrapper">
-                                                                        <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + imgObj} alt="Palm Image" />
+                                                                        <img src={imgObj} alt="Palm Image" />
                                                                     </div>
                                                                 </SwiperSlide>
                                                             ))}
@@ -112,7 +108,7 @@ const Detailpros = () => {
 
                                                         <div className="pros-para">
                                                             <p>
-                                                                {item?.detail_features_description}
+                                                                {item.para}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -124,8 +120,8 @@ const Detailpros = () => {
                             ))
                         }
                     </div>
-                </div >
-            </section >
+                </div>
+            </section>
         </>
     )
 }

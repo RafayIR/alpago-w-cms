@@ -1,18 +1,12 @@
 'use client'
 import { useState } from "react";
+import TextAnimation from "../../hooks/TextAnimation";
 import ReCAPTCHA from 'react-google-recaptcha'
-import { SinHala, StadMitte } from "../../app/font"
+import { Halvar, HalvarEng, Rufo, SinHala, StadMitte } from "../../app/font"
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import axios from "axios";
 import * as Yup from 'yup';
-import { useData } from "../../hooks/useGetData";
 
 const ContactForm = () => {
-    const data = useData()
-    const form_title = data?.data?.content?.form_title
-    const form_image = data?.data?.content?.form_image
-
-
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [captchaState, setCaptchaState] = useState(false);
     const initialValues = {
@@ -48,39 +42,35 @@ const ContactForm = () => {
     const handleSubmit = async (values, { setSubmitting }) => {
 
 
-        // if (!captchaState) {
-        //     alert('Please Fill reCAPTCHA.');
-        //     return;
-        // }
+        if (!captchaState) {
+            alert('Please Fill reCAPTCHA.');
+            return;
+        }
 
 
         setIsSubmitting(true);
         setSubmitting(true)
 
-        try {
-            const response = await axios.post('https://digitalgraphiks.co.uk/demo/alpago-properties-cms/api/contact-store', {
-                name: values.name,
-                email: values.email.toLowerCase(),
-                phonenumber: values.contact,
-                message: values.message
-            });
+        console.log(values)
+        // try {
+        //     instance.post(`/signup/`, {
+        //         name: values.name,
+        //         email: values.email.toLowerCase(),
+        //         password: values.phoneNumber,
+        //         contact: values.Message
+        //     }).then((resp) => {
+        //         if (resp.status === 201) {
+        //             setIsSubmitting(false);
+        //             setSubmitting(false)
+        //         }
+        //     }).catch((err) => {
+        //         console.log(err)
+        //         setIsSubmitting(false);
 
-
-
-            // Check if response status is 200
-            if (response.status === 200) {
-                setIsSubmitting(false); // Assuming this is for loading state
-                setSubmitting(false); // Assuming this is for form submission state
-            } else {
-                console.error('Unexpected response status:', response.status);
-                setIsSubmitting(false);
-                setSubmitting(false);
-            }
-        } catch (error) {
-            console.error('Error during API call:', error);
-            setIsSubmitting(false);
-            setSubmitting(false);
-        }
+        //     })
+        // } catch (error) {
+        //     console.log(error)
+        // }
     };
 
     return (
@@ -88,12 +78,12 @@ const ContactForm = () => {
             <section className="contact-form-wrapper">
                 <div className="bg-black">
                     <div className="container-fluid p-0">
-                        <div className="row m-0">
+                        <div className="row m-0"> 
                             <div className="col-lg-6 col-md-6 p-0">
                                 <div className="form-container">
                                     <div className="form-heading">
                                         <h3 className={`${StadMitte.className}`}>
-                                            {form_title}
+                                            GET IN TOUCH
                                         </h3>
                                     </div>
 
@@ -142,7 +132,7 @@ const ContactForm = () => {
                             </div>
                             <div className="col-lg-6 col-md-6 p-0">
                                 <div className="contact-img-wrapper">
-                                    <img src={form_image} alt="Contact Image" />
+                                    <img src="/assets/img/contact/contact-form.png" alt="Contact Image" />
                                 </div>
                             </div>
                         </div>

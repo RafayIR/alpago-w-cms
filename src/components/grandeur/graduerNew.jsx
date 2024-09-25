@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
+import data from "./data";
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { HiArrowRight } from "react-icons/hi2";
@@ -7,12 +8,11 @@ import { SinHala, StadMitte } from "../../app/font";
 import 'swiper/scss';
 import 'swiper/css/pagination';
 import useWindowWidth from "../../hooks/useWindowWidth";
-import { useData } from "../../hooks/useGetData";
+
 
 const GranduerNew = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const data = useData();
-    const granduerData = data?.data?.content?.granduer
+
     const handleHover = (index) => {
         setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
     };
@@ -24,8 +24,8 @@ const GranduerNew = () => {
                 <div className="bg-grey" style={{ background: '#1A1A1A' }}>
                     <div className="container-fluid p-0">
                         <div className="al-heading">
-                            <h2 className={`${StadMitte.className}`}>
-                                UNSEEN GRANDUER
+                            <h2 style={{ textTransform: 'uppercase' }} className={`${StadMitte.className}`}>
+                                The Alpago Experience
                             </h2>
                         </div>
 
@@ -37,10 +37,7 @@ const GranduerNew = () => {
 
                                         <div className={`img-wrapper ${activeIndex !== null ? 'active' : ''}`} >
                                             <img
-                                                src={
-                                                    activeIndex !== null
-                                                        ? granduerData[activeIndex].image :
-                                                        '/assets/img/granduer/grand-img-1.png'}
+                                                src={activeIndex === 0 ? '/assets/img/granduer/rarity-in-luxury.png' : activeIndex === 1 ? '/assets/img/granduer/pioneering-standards.png' : activeIndex === 2 ? '/assets/img/granduer/innovation-luxury.png' : '/assets/img/granduer/grand-img-4.png'}
                                                 alt="Insight image"
                                             />
                                         </div>
@@ -49,11 +46,12 @@ const GranduerNew = () => {
                                 </div>
                                 <div className="col-lg-6 col-xl-6" >
                                     {
-                                        granduerData?.map((item, index) => (
+                                        data.map((item, index) => (
                                             <AccordionItem
                                                 key={index}
                                                 heading={item.heading}
                                                 detail={item.detail}
+                                                count={item.count}
                                                 image={item.image}
                                                 activeIn1dex={activeIndex}
                                                 isOpen={activeIndex === index}

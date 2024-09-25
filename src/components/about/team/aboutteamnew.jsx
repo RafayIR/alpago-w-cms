@@ -2,13 +2,9 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { SinHala, StadMitte } from '../../../app/font';
 import { Navigation, Autoplay, } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useData } from "../../../hooks/useGetData";
-
+import { newTeam } from "./teamData";
 
 const AboutTeamNew = () => {
-    const data = useData()
-    const newTeam = data?.data?.content?.team?.teamData
-    const title = data?.data?.content?.team?.title
 
 
 
@@ -21,7 +17,7 @@ const AboutTeamNew = () => {
                             <div className='meet-team-header'>
                                 <span className={StadMitte.className}>MEET THE</span>
                                 <h4 className={`${StadMitte.className}`}>
-                                    {title}
+                                    TEAM
                                 </h4>
                             </div>
                         </div>
@@ -70,7 +66,7 @@ const AboutTeamNew = () => {
                         }}
                         className="swiper-container">
                         {
-                            newTeam?.map((team, i) => (
+                            newTeam.map((team, i) => (
                                 <SwiperSlide key={i}>
                                     <div className="d-flex team-row position-relative">
                                         <div className="team-img col-lg-6 col-md-6 col-12">

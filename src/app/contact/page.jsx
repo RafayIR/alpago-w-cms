@@ -1,19 +1,17 @@
+'use client'
 import Contact from "../../page/contactpage";
-import Provider from '../_provider/provider'
-import { getContactData } from "../_fetchData";
+import WebsiteLoader from "../../components/websiteloader/WebsiteLoader";
+import { ReactLenis } from 'lenis/react'
 
+const ContactPage = () => {
 
-
-
-const ContactPage = async () => {
-
-    let data = await getContactData()
 
     return (
         <>
-            <Provider>
-                <Contact data={data} />
-            </Provider>
+            <ReactLenis root>
+                <WebsiteLoader />
+                <Contact />
+            </ReactLenis>
         </>
     )
 }

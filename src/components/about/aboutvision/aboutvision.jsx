@@ -6,7 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { gsap, ScrollTrigger } from "gsap/all"
 import { useLayoutEffect, useRef } from "react";
 import { useInView } from 'react-intersection-observer';
-import { useData } from '../../../hooks/useGetData';
+
 
 const AboutVision = () => {
     const [activeKey, setActiveKey] = useState("0");
@@ -22,10 +22,6 @@ const AboutVision = () => {
         triggerOnce: false,
         rootMargin: '0px 0px -50% 0px'
     });
-
-    const data = useData()
-    const aboutVision = data?.data?.content?.companyProject
-
     // const component = useRef();
     // const slider = useRef()
 
@@ -206,18 +202,22 @@ const AboutVision = () => {
 
                 <div id='mission' className="vis-bg">
                     <div className="container">
-
                         <div ref={ref1} className="row al-row">
                             <div className="col-lg-6 col-md-6">
                                 <div className={`al-content-wrapper ${inView1 ? 'animate' : ''}`}>
                                     <div className="al-header">
                                         <h3 className={`${StadMitte.className}`}>
-                                            {aboutVision[0]?.title}
+                                            MISSION
                                         </h3>
                                     </div>
                                     <div className="al-para">
                                         <p className={`${SinHala.className}`}>
-                                            {aboutVision[0]?.para}
+                                            Our mission is to curate exclusive, ultra-luxurious properties that embody the essence of artistry,
+                                            aspiration, and individuality. Through meticulous attention to detail and an unwavering commitment
+                                            to excellence, we aspire to create environments that inspire and empower our clientele to embrace
+                                            their unique identities and elevate their lifestyles. With a confident approach to business presence,
+                                            we aim to set new standards of distinction and sophistication, delivering peerless residences that
+                                            embody the epitome of opulence and refinement.
 
                                         </p>
                                     </div>
@@ -226,7 +226,7 @@ const AboutVision = () => {
 
                             <div className="col-lg-6 col-md-6">
                                 <div className="img-wrapper">
-                                    <img src={aboutVision[0]?.img} alt="mission" />
+                                    <img src="/assets/img/about/mission.webp" alt="mission" />
                                 </div>
                             </div>
                         </div>
@@ -236,12 +236,15 @@ const AboutVision = () => {
                                 <div className={`al-content-wrapper ${inView2 ? 'animate' : ''}`}>
                                     <div className="al-header">
                                         <h3 className={`${StadMitte.className}`}>
-                                            {aboutVision[1]?.title}
+                                            VISION
                                         </h3>
                                     </div>
                                     <div className="al-para">
                                         <p className={`${SinHala.className}`}>
-                                            {aboutVision[1]?.para}
+                                            We carry a vision to be the premier real estate developer, renowned for transforming landscapes into thriving,
+                                            sustainable communities. Our vision is to lead the industry with innovative property solutions that embody excellence,
+                                            integrity, and customer-centric values while enhancing the quality of life for residents. We are committed to
+                                            shaping the future of real estate through sustainable practices,cutting-edge design, and a pursuit to deliver unparalleled value, we aim to set new benchmarks in the modern market
                                         </p>
                                     </div>
                                 </div>
@@ -249,7 +252,7 @@ const AboutVision = () => {
 
                             <div className="col-lg-6 col-md-6">
                                 <div className="img-wrapper">
-                                    <img src={aboutVision[1]?.img} alt="vision" />
+                                    <img src="/assets/img/about/vision.webp" alt="vision" />
                                 </div>
                             </div>
                         </div>

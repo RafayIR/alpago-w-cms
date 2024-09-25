@@ -8,13 +8,48 @@ import 'swiper/scss';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import { useData } from '../../hooks/useGetData';
 
 
+
+const ProjectData = [
+    {
+        title: 'RIVA DEL LUSSO',
+        image: '/assets/img/project/reva-del-lusso.png',
+        path: '/detail'
+    },
+    {
+        title: 'SEREME VERSANTE',
+        image: '/assets/img/project/serene.png',
+        path: '/detail'
+    },
+    {
+        title: 'FRAMED ALLURE',
+        image: '/assets/img/project/framed-allured.png',
+        path: '/detail'
+    },
+    {
+        title: 'SOLE MARE',
+        image: '/assets/img/project/sole-mare.png',
+        path: '/detail'
+    },
+    {
+        title: 'KURAL VISTA',
+        image: '/assets/img/project/kural-vista.png',
+        path: '/detail'
+    },
+    {
+        title: 'PALM FLOWER',
+        image: '/assets/img/project/palm-flower.png',
+        path: '/detail'
+    },
+    {
+        title: 'CASA DEL SOLE',
+        image: '/assets/img/project/casa-del-sole.png',
+        path: '/detail'
+    },
+]
 
 const HomeProject = () => {
-    const data = useData()
-    const projectData = data?.project
     const component = useRef();
     const slider = useRef();
     const heading = useRef();
@@ -28,7 +63,7 @@ const HomeProject = () => {
             let sliderWidth = slider.current.offsetWidth + window.innerWidth;
             let panels = gsap.utils.toArray(".panels");
             // const headerWidth = companyProjHeader.current.offsetWidth;
-            let panelWidth = panels[0]?.offsetWidth; // Assuming all panels have the same width
+            let panelWidth = panels[0].offsetWidth; // Assuming all panels have the same width
             let maxScroll = (panels.length - 1) * panelWidth; // Calculate maximum scroll position
             gsap.to(panels, {
                 // xPercent: -100 * (panels.length - 1.5),
@@ -78,7 +113,7 @@ const HomeProject = () => {
 
     const handleButtonClick = (direction) => {
         let panels = gsap.utils.toArray(".panel");
-        let panelWidth = panels[0]?.offsetWidth; // Assuming all panels have the same width
+        let panelWidth = panels[0].offsetWidth; // Assuming all panels have the same width
         let maxScroll = (panels.length - 1) * panelWidth; // Calculate maximum scroll position
 
         // Calculate the new scroll position based on direction
@@ -119,13 +154,13 @@ const HomeProject = () => {
                     <div className="container-fluid container-scroll p-0">
                         <div ref={slider} className='row m-0'>
                             {
-                                projectData?.map((item, i) => (
+                                ProjectData.map((item, i) => (
                                     <div key={i} className='col-lg-6 col-md-8 col-12 px-4 panels'>
                                         <div className="panel">
-                                            <Link target='_blank' href={`detail/${item.slug}`}>
+                                            <Link target='_blank' href={item.path}>
                                                 <div className="card border-0">
                                                     <div className='card-img-wrapper'>
-                                                        <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + item?.image} className="card-img-top" alt={item.title} />
+                                                        <img src={item.image} className="card-img-top" alt={item.title} />
                                                         <div className='plus-sign'>
                                                             <div className='sign-wrapper'>
                                                                 <img src="/assets/icons/arrow-tilt-right.svg" alt="Arrow" />
@@ -134,7 +169,7 @@ const HomeProject = () => {
                                                     </div>
                                                     <div className="card-body">
                                                         <div className='card-title'>
-                                                            <h4 className={`${StadMitte.className}`}>{item?.title}</h4>
+                                                            <h4 className={`${StadMitte.className}`}>{item.title}</h4>
                                                         </div>
                                                     </div>
                                                 </div>

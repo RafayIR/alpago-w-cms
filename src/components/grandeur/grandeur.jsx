@@ -34,7 +34,7 @@ const Granduer = () => {
                 <div className="box-wrapper">
                     <div className="row box-row">
                         <div className="col-lg-7 row">
-                            {[...Array(images.length)]?.map((_, index) => (
+                            {[...Array(images.length)].map((_, index) => (
                                 <div
                                     key={index}
                                     className="col-lg-6 box-col"

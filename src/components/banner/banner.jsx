@@ -7,23 +7,20 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import { EffectFade, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { useData } from '../../hooks/useGetData';
 
 import 'swiper/scss';
 import 'swiper/scss/effect-fade';
-
+import Link from 'next/link';
 
 
 const BannerHome = () => {
     const container = useRef();
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(0);
-    const [showTitle, setShowTitle] = useState(true);
-    const [swiperSlide, setSwiperSlide] = useState('');
-    const [currentNewSlide, setSlideNewCurrent] = useState(0);
-    const [disable, setDisable] = useState(false);
-    const data = useData()
-    const bannerData = data?.data?.content?.banner
+    const [showTitle, setShowTitle] = useState(true)
+    const [swiperSlide, setSwiperSlide] = useState('')
+    const [currentNewSlide, setSlideNewCurrent] = useState(0)
+    const [disable, setDisable] = useState(false)
 
     const { scrollYProgress } = useScroll({
         target: container,
@@ -269,65 +266,157 @@ const BannerHome = () => {
                                     }
                                 }}
                                 className="swiper-container al-service-active">
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='video-inner'>
+                                        <video muted autoPlay playsInline width='100%'
+                                            src={`/assets/video/intro_1.mp4`}
+                                            ref={videoRefs.video1}
+                                            onPlay={handleSlideChange}
+                                            onEnded={() => handleVideoEnd(0)}
+                                            preload="none">
+                                        </video>
+                                    </div>
+                                    <div className='banner--content'>
+                                        <div className='container-fluid h-container'>
+                                            <div className='row'>
+                                                <div className='col-lg-6 p-0'>
+                                                    {
+                                                        showTitle ?
+                                                            <>
+                                                                <div className='banner-heading'>
+                                                                    <h1 style={{ textTransform: 'uppercase' }} className={Rufo.className}>
+                                                                        <TextAnimation text={'PURSUIT OF PERFECTION'} />
+                                                                    </h1>
+                                                                    <h1 style={{ textTransform: 'uppercase' }} className={Rufo.className}>
 
-                                {
-                                    bannerData?.map((item, i) => (
+                                                                    </h1>
+                                                                </div>
+                                                                {/* <div className='dicover-btn'>
+                                                                    <Link href='#'>
+                                                                        <p className={` ${SinHala.className}`}>
+                                                                            DISCOVER MORE
+                                                                            <span className='d-inline-block'>
+                                                                                <img src="/assets/icons/discover-btn-arrow.svg" alt="Arrow Right" />
+                                                                            </span>
+                                                                        </p>
+                                                                    </Link>
+                                                                </div> */}
+                                                            </>
+                                                            :
+                                                            <>
+                                                            </>
+                                                    }
 
-                                        <SwiperSlide className="swiper-slide" key={i}>
-                                            <div className='video-inner'>
-                                                <video muted autoPlay playsInline width='100%'
-                                                    src={item.bannerVideo}
-                                                    ref={i == 0 ? videoRefs.video1 : i == 1 ? videoRefs.video2 : videoRefs.video3}
-                                                    onPlay={handleSlideChange}
-                                                    onEnded={() => handleVideoEnd(i)}
-                                                    preload="none">
-                                                </video>
-                                            </div>
-                                            <div className='banner--content'>
-                                                <div className='container-fluid h-container'>
-                                                    <div className='row'>
-                                                        <div className='col-lg-6 p-0'>
-                                                            {
-                                                                showTitle ?
-                                                                    <>
-                                                                        <div className='banner-heading'>
-                                                                            <h1 className={` ${Rufo.className}`}>
-                                                                                <TextAnimation text={item.bannerTitle_1} />
-                                                                            </h1>
-                                                                            {
-                                                                                item.bannerTitle_2 && (
-                                                                                    <h1 className={` ${Rufo.className}`}>
-                                                                                        <TextAnimation text={item.bannerTitle_2} />
-                                                                                    </h1>
-                                                                                )
-                                                                            }
-
-                                                                        </div>
-                                                                        {/* <div className='dicover-btn'>
-                                                                            <Link href='#'>
-                                                                                <p className={` ${SinHala.className}`}>
-                                                                                    DISCOVER MORE
-                                                                                    <span className='d-inline-block'>
-                                                                                        <img src="/assets/icons/discover-btn-arrow.svg" alt="Arrow Right" />
-                                                                                    </span>
-                                                                                </p>
-                                                                            </Link>
-                                                                        </div> */}
-                                                                    </>
-                                                                    :
-                                                                    <>
-                                                                    </>
-                                                            }
-
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </SwiperSlide>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='video-inner'>
+                                        <video muted autoPlay playsInline
+                                            ref={videoRefs.video2}
+                                            src={'/assets/video/intro_2.mp4'}
+                                            onPlay={handleSlideChange}
+                                            onEnded={() => handleVideoEnd(1)}
+                                            width='100%'
+                                            preload='none'
+                                            type="video/mp4">
+                                        </video>
+                                    </div>
 
-                                    ))
-                                }
-                             
+                                    <div className='banner--content'>
+                                        <div className='container-fluid h-container'>
+                                            <div className='row'>
+                                                <div className='col-lg-6 p-0'>
+
+                                                    {
+                                                        showTitle ?
+                                                            <>
+                                                                <div className='banner-heading'>
+                                                                    <h1 style={{ textTransform: 'uppercase' }} className={Rufo.className}>
+                                                                        <TextAnimation text={'Create Exceptional'} />
+                                                                    </h1>
+                                                                    <h1 style={{ textTransform: 'uppercase' }} className={`${Rufo.className}`}>
+                                                                        <TextAnimation text={'Experiences'} />
+                                                                    </h1>
+                                                                </div>
+                                                                {/* <div className='dicover-btn'>
+                                                                    <Link href='#'>
+                                                                        <p className={` ${SinHala.className}`}>
+                                                                            DISCOVER MORE
+                                                                            <span className='d-inline-block'>
+                                                                                <img src="/assets/icons/discover-btn-arrow.svg" alt="Arrow Right" />
+                                                                            </span>
+                                                                        </p>
+                                                                    </Link>
+                                                                </div> */}
+                                                            </>
+
+                                                            :
+
+                                                            <>
+                                                            </>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className="swiper-slide">
+                                    <div className='video-inner'>
+                                        <video muted autoPlay playsInline
+                                            ref={videoRefs.video3}
+                                            style={{
+                                                height: '100%',
+                                                objectFit: 'cover'
+                                            }}
+                                            src={'/assets/video/intro_3.mp4'}
+                                            onPlay={handleSlideChange}
+                                            onEnded={() => handleVideoEnd(2)}
+                                            width='100%'
+                                            preload='none'
+                                            type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                    <div className='banner--content'>
+                                        <div className='container-fluid h-container'>
+                                            <div className='row'>
+                                                <div className='col-lg-6 p-0'>
+                                                    {
+                                                        showTitle ?
+                                                            <>
+                                                                <div className='banner-heading'>
+                                                                    <h1 style={{ textTransform: 'uppercase' }} className={`${Rufo.className}`}>
+                                                                        <TextAnimation text={'PALM FLOWER'} />
+                                                                    </h1>
+                                                                </div>
+                                                                {/* <div className='dicover-btn'>
+                                                                    <Link href='#'>
+                                                                        <p className={` ${SinHala.className}`}>
+                                                                            DISCOVER MORE
+                                                                            <span className='d-inline-block'>
+                                                                                <img src="/assets/icons/discover-btn-arrow.svg" alt="Arrow Right" />
+                                                                            </span>
+                                                                        </p>
+                                                                    </Link>
+                                                                </div> */}
+                                                            </>
+
+                                                            :
+
+                                                            <>
+
+                                                            </>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
                             </Swiper>
                             <div className='banner-mobile-arrow d-md-none'>
                                 <div className="al-slider-arrow col-lg-4 p-0 d-flex">
@@ -338,7 +427,7 @@ const BannerHome = () => {
                         </motion.div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 

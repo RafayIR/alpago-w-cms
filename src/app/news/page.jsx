@@ -1,20 +1,18 @@
-import Provider from '../_provider/provider';
+'use client'
+import { ReactLenis } from 'lenis/react';
 import News from '../../page/newspage';
-import { getNewLandingdata } from '../_fetchData';
+import WebsiteLoader from '../../components/websiteloader/WebsiteLoader';
 
 
-
-const NewsPage = async ({ searchParams }) => {
-
-    const data = await getNewLandingdata(searchParams)
-
+const NewsPage = () => {
 
 
     return (
         <>
-            <Provider>
-                <News data={data} />
-            </Provider>
+            <ReactLenis root>
+                <WebsiteLoader />
+                <News />
+            </ReactLenis>
         </>
     )
 }

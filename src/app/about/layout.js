@@ -1,18 +1,10 @@
 import { Halvar } from '../font';
-import { getAboutData } from '../_fetchData/index'
 
 
-export const generateMetadata = async () => {
-    let metadata = await getAboutData()
-
-
-    return {
-        title: metadata?.data?.meta_title || "About Us",
-        description: metadata?.data?.meta_description || "About Us",
-    }
-}
-
-
+export const metadata = {
+    title: "About Us",
+    description: "",
+};
 
 export default function RootLayout({ children }) {
     return (

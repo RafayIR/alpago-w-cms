@@ -2,8 +2,9 @@
 import { RiArrowDownSLine } from "react-icons/ri";
 import Link from "next/link";
 import { SinHala } from "../../../app/font";
+import { NavMenuList } from './MenuData';
 
-const NavMenu = ({ toggleHover, menuData }) => {
+const NavMenu = ({ toggleHover }) => {
 
 
     return (
@@ -12,10 +13,10 @@ const NavMenu = ({ toggleHover, menuData }) => {
                 <div className=" navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         {
-                            menuData?.NavMenuList?.map((item, i) => (
+                            NavMenuList?.map((item, i) => (
                                 <li key={i} className="nav-item">
-                                    <Link className={`nav-link ${SinHala.className}`} onClick={item.hasSubMenu ? toggleHover : null} href={item.hasSubMenu ? '' : `/` + item.path}>{item.name}</Link>
-                                    <Link className={`nav-link ${SinHala.className}`} onClick={item.hasSubMenu ? toggleHover : null} href={item.hasSubMenu ? '' : `/` + item.path}>{item.name}</Link>
+                                    <Link className={`nav-link ${SinHala.className}`} onClick={item.hasSubMenu ? toggleHover : null} href={item.path}>{item.name}</Link>
+                                    <Link className={`nav-link ${SinHala.className}`} onClick={item.hasSubMenu ? toggleHover : null} href={item.path}>{item.name}</Link>
                                     {item.hasSubMenu ? <span className="arrow-down">
                                         <RiArrowDownSLine />
                                     </span> : ''}

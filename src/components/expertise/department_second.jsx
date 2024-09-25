@@ -4,12 +4,10 @@ import { useState } from 'react'
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import { useData } from "../../hooks/useGetData";
+
 
 const DepartmentSecond = () => {
     const component = useRef();
-    const data = useData()
-    const expertiseSlider = data?.data?.content?.departSlider
     const [slideCount, setSlideCount] = useState(1)
 
     useLayoutEffect(() => {
@@ -31,7 +29,7 @@ const DepartmentSecond = () => {
                     onUpdate: (self) => {
                         const progress = self.progress;
                         const currentIndex = Math.floor(progress * (images.length));
-                        if (currentIndex < images?.length) {
+                        if (currentIndex < 5) {
                             setSlideCount(currentIndex + 1);
                             return
                         }
@@ -41,6 +39,7 @@ const DepartmentSecond = () => {
 
 
             images.forEach((img, i) => {
+
                 if (images[i + 1]) {
                     tl.to(img, { opacity: 0 }, "+=0.5")
                         .to(images[i + 1], { opacity: 1 }, "<")
@@ -71,9 +70,21 @@ const DepartmentSecond = () => {
 
                         <div className="col-lg-6 col-md-6 left-container">
                             <div className="left-content">
-                                {expertiseSlider?.map((imgSrc, index) => (
-                                    <img key={index} src={imgSrc.departImg} alt={`Department ${index + 1}`} />
-                                ))}
+
+                                <img src="/assets/img/expertise/department.png" alt="department" />
+
+
+                                <img src="/assets/img/expertise/department-2.webp" alt="department" />
+
+
+                                <img src="/assets/img/expertise/department-3.webp" alt="department" />
+
+
+                                <img src="/assets/img/expertise/department-4.webp" alt="department" />
+
+
+                                <img src="/assets/img/expertise/department-2.webp" alt="department" />
+
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6 right-container">
@@ -83,32 +94,122 @@ const DepartmentSecond = () => {
                                         OUR DEPARTMENTS
                                     </h2>
                                 </div>
-                                {
-                                    expertiseSlider?.map((item, i) => (
-                                        <div key={i} className="right-element">
-                                            <div className="desc-para">
-                                                <div className="sub-heading">
-                                                    <h4 className={SinHala.className}>
-                                                        {item.departSubTitle}
-                                                    </h4>
-                                                </div>
-                                                <p className={SinHala.className}>
-                                                    {item.departPara}
-                                                </p>
-                                                <div className="team-title-wrapper">
-                                                    <div className="text-white">
-                                                        <h5 className={`${SinHala.className} `}>
-                                                            {item.teamTitle}
-                                                        </h5>
-                                                        <span className={`${SinHala.className} mt-2 team-title`}>
-                                                            {item.teamTitleName}
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                <div className="right-element">
+                                    <div className="desc-para">
+                                        <div className="sub-heading">
+                                            <h4 className={SinHala.className}>
+                                                MARKETING
+                                            </h4>
+                                        </div>
+                                        <p className={SinHala.className}>
+                                            Our services include a skilled in-house design and development team, dedicated fieldwork and site supervision,
+                                            extensive in-house purchasing aligned with BOQs, and collaboration with distinguished architects.
+                                        </p>
+                                        <div className="team-title-wrapper">
+                                            <div className="text-white">
+                                                <h5 className={`${SinHala.className} `}>
+                                                    HEAD OF MARKETING
+                                                </h5>
+                                                <span className={`${SinHala.className} mt-2 team-title`}>
+                                                    MIKE ROSS
+                                                </span>
                                             </div>
                                         </div>
-                                    ))
-                                }
+
+                                    </div>
+                                </div>
+                                <div className="right-element">
+                                    <div className="desc-para">
+                                        <div className="sub-heading">
+                                            <h4 className={SinHala.className}>
+                                                DESIGN TEAM 2
+                                            </h4>
+                                        </div>
+                                        <p className={SinHala.className}>
+                                            Our services include a skilled in-house design and development team, dedicated fieldwork and site supervision,
+                                            extensive in-house purchasing aligned with BOQs, and collaboration with distinguished architects.
+                                        </p>
+                                        <div className="team-title-wrapper">
+                                            <div className="text-white">
+                                                <h5 className={`${SinHala.className} `}>
+                                                    HEAD OF MARKETING
+                                                </h5>
+                                                <span className={`${SinHala.className} mt-2 team-title`}>
+                                                    MIKE ROSS
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="right-element">
+                                    <div className="desc-para">
+                                        <div className="sub-heading">
+                                            <h4 className={SinHala.className}>
+                                                DESIGN TEAM 3
+                                            </h4>
+                                        </div>
+                                        <p className={SinHala.className}>
+                                            Our services include a skilled in-house design and development team, dedicated fieldwork and site supervision,
+                                            extensive in-house purchasing aligned with BOQs, and collaboration with distinguished architects.
+                                        </p>
+                                        <div className="team-title-wrapper">
+                                            <div className="text-white">
+                                                <h5 className={`${SinHala.className} `}>
+                                                    HEAD OF MARKETING
+                                                </h5>
+                                                <span className={`${SinHala.className} mt-2 team-title`}>
+                                                    MIKE ROSS
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="right-element">
+                                    <div className="desc-para">
+                                        <div className="sub-heading">
+                                            <h4 className={SinHala.className}>
+                                                DESIGN TEAM 4
+                                            </h4>
+                                        </div>
+                                        <p className={SinHala.className}>
+                                            Our services include a skilled in-house design and development team, dedicated fieldwork and site supervision,
+                                            extensive in-house purchasing aligned with BOQs, and collaboration with distinguished architects.
+                                        </p>
+                                        <div className="team-title-wrapper">
+                                            <div className="text-white">
+                                                <h5 className={`${SinHala.className} `}>
+                                                    HEAD OF MARKETING
+                                                </h5>
+                                                <span className={`${SinHala.className} mt-2 team-title`}>
+                                                    MIKE ROSS
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="right-element">
+                                    <div className="desc-para">
+                                        <div className="sub-heading">
+                                            <h4 className={SinHala.className}>
+                                                DESIGN TEAM 5
+                                            </h4>
+                                        </div>
+                                        <p className={SinHala.className}>
+                                            Our services include a skilled in-house design and development team, dedicated fieldwork and site supervision,
+                                            extensive in-house purchasing aligned with BOQs, and collaboration with distinguished architects.
+                                        </p>
+                                        <div className="team-title-wrapper">
+                                            <div className="text-white">
+                                                <h5 className={`${SinHala.className} `}>
+                                                    HEAD OF MARKETING
+                                                </h5>
+                                                <span className={`${SinHala.className} mt-2 team-title`}>
+                                                    MIKE ROSS
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

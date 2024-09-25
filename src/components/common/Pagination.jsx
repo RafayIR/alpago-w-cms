@@ -1,15 +1,9 @@
 import { Pagination, Stack } from '@mui/material';
 import useWindowWidth from '../../hooks/useWindowWidth';
 
-const PaginationNumber = ({ totalPages, currentPage, pageSize, onPageChange }) => {
+const PaginationNumber = () => {
 
     const windoWidth = useWindowWidth()
-
-    const handlePageChange = (event, value) => {
-
-        onPageChange(value);
-    };
-
 
     return (
 
@@ -19,10 +13,7 @@ const PaginationNumber = ({ totalPages, currentPage, pageSize, onPageChange }) =
                     <Pagination
                         siblingCount={windoWidth < 767 ? 0 : 1}
                         boundaryCount={1}
-                        count={totalPages}
-                        page={currentPage}
-                        onChange={handlePageChange}
-                    />
+                        count={10} />
                 </Stack>
             </div>
         </>

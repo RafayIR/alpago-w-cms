@@ -3,35 +3,21 @@ import { useField, useFormikContext } from 'formik';
 import MultiSelect from 'multiselect-react-dropdown';
 import { SinHala } from '../../app/font';
 
-const MultiSelectFormik = ({ name, options, initialValues, ...props }) => {
-
+const MultiSelectFormik = ({ name, options, ...props }) => {
     const { setFieldValue, values } = useFormikContext();
-
     const handleSelect = (selectedList) => {
-        setFieldValue(name, selectedList.map((item, i) => {
-            return (
-                {
-                    item: item.name,
-                    id: item.id
-                }
-            )
-        }));
+        setFieldValue(selectedList.map(item => item.value));
     };
 
     const handleRemove = (selectedList) => {
-        setFieldValue(name, selectedList.map((item, i) => {
-            return (
-                item.name
-            )
-        }));
+        setFieldValue(selectedList.map(item => item.value));
     };
 
-
-
     return (
+
         <MultiSelect
             options={options}
-            selectedValues={options?.filter(option => values[name]?.includes(option?.value))}
+            selectedValues={options?.filter(option => values[name]?.includes(option.value))}
             onSelect={handleSelect}
             onRemove={handleRemove}
             displayValue='name'

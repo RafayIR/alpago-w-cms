@@ -6,10 +6,8 @@ import NavMenu from "./menu/NavMenu";
 import { TbMenu } from "react-icons/tb";
 import OverLayMenu from "./menu/overlaymenu";
 import OverLayDropDown from "./menu/overlaydropdown";
-import axios from "axios";
 
 const Header = () => {
-    const [menuData, setMenuData] = useState(null)
     const [showHeaderHolder, setShowHeaderHolder] = useState(false);
     const [showOverLay, setShowOverLay] = useState(false)
     const [hasHover, setHasHover] = useState(false)
@@ -26,21 +24,6 @@ const Header = () => {
     }
 
     useEffect(() => {
-
-
-        const fetchMenuData = async () => {
-            try {
-                const response = await axios.get('https://digitalgraphiks.co.uk/demo/alpago-properties-cms/api/get_menus')
-                setMenuData(response?.data?.data)
-
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        fetchMenuData()
-
-
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
@@ -67,13 +50,13 @@ const Header = () => {
                         <div className="col-lg-6 p-0">
                             <div className="header-logo relative">
                                 <Link href="/">
-                                    <Image src="/assets/img/logo/alpago-properties-logo-u.svg" fill style={{ objectFit: 'contain' }} alt="Logo" />
+                                    <Image src="/assets/img/logo/alpago-properties-logo-u.svg" fill style={{ objectFit: 'contain' }} />
                                 </Link>
                             </div>
                         </div>
 
                         <div className="col-lg-6 text-end p-0">
-                            <NavMenu menuData={menuData} toggleHover={toggleHover} />
+                            <NavMenu toggleHover={toggleHover} />
                         </div>
                     </div>
                 </div>
@@ -99,8 +82,8 @@ const Header = () => {
                     </div>
                 </div>
 
-                <OverLayMenu menuData={menuData} showOverLay={showOverLay} toggleOverlay={toggleOverlay} toggleHover={toggleHover} />
-                <OverLayDropDown menuData={menuData} hasHover={hasHover} hoveredText={hoveredText} toggleHover={toggleHover} />
+                <OverLayMenu showOverLay={showOverLay} toggleOverlay={toggleOverlay} toggleHover={toggleHover} />
+                <OverLayDropDown hasHover={hasHover} hoveredText={hoveredText} toggleHover={toggleHover} />
             </header>
 
         </>

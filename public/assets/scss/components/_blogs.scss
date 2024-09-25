@@ -24,21 +24,6 @@
         display: block;
         height: 100%;
 
-
-        &.border-none {
-            border: none;
-
-            .news-card-img {
-                border: 1px solid #FFFFFF4D;
-                border-bottom: 0;
-            }
-
-            .content-desc {
-                border: 1px solid #FFFFFF4D;
-                border-top: 0;
-            }
-        }
-
         .news-card-img {
             position: relative;
 
@@ -62,7 +47,7 @@
 
         .content-desc {
             padding: 25px 25px;
-            height: 42vh;
+            height: 50%;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -79,8 +64,8 @@
             display: flex;
             align-items: center;
             padding-top: 40px;
-            // position: absolute;
-            // bottom: 0;
+            position: absolute;
+            bottom: 0;
 
 
             span {

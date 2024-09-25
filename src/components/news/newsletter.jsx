@@ -1,21 +1,7 @@
-import { useEffect, useState } from "react";
 import { SinHala, StadMitte } from "../../app/font";
-import axios from "axios";
+
 
 const NewsLetter = () => {
-    const [email, setEmail] = useState();
-    const [message, setMessage] = useState(null)
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        const resp = await axios.post('https://digitalgraphiks.co.uk/demo/alpago-properties-cms/api/subscriber', {
-            newsletter_email: email
-        })
-
-        setMessage(resp?.data?.message)
-    }
-
 
 
     return (
@@ -34,18 +20,10 @@ const NewsLetter = () => {
                         </h5>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="input-group news-letter-input mb-3">
-                        <input type="email" className="form-control" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
-                        <button className={`btn ${SinHala.className}`} type="submit">Submit</button>
-                    </form>
-
-                    {
-                        message && (
-                            <div style={{ color: 'white', textTransform: 'capitalize' }}>
-                                {message}
-                            </div>
-                        )
-                    }
+                    <div className="input-group news-letter-input mb-3">
+                        <input type="text" className="form-control" placeholder="Enter your email" aria-label="Enter your email" />
+                        <button className={`btn ${SinHala.className}`} type="button" id="button-addon2">Submit</button>
+                    </div>
                 </div>
             </section>
         </>

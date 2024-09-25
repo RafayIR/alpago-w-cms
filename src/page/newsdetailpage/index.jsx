@@ -1,19 +1,15 @@
-'use client'
 import Header from "../../layout/header/header"
 import Footer from "../../layout/footer/footer"
 import NewsBanner from '../../components/banner/newsdetailbanner'
 import NewsMain from '../../components/news/newsmain'
-import ProvideData from "../../hooks/useGetData"
 
-const NewsDetail = ({ data }) => {
+const NewsDetail = () => {
     return (
         <>
             <Header />
             <main>
-                <ProvideData data={data}>
-                    <NewsBanner />
-                    <NewsMain />
-                </ProvideData>
+                <NewsBanner />
+                <NewsMain />
             </main>
             <Footer />
 

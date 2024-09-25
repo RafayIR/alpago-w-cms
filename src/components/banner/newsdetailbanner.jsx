@@ -1,9 +1,7 @@
 import { StadMitte } from "../../app/font"
-import { useData } from "../../hooks/useGetData"
+
 
 const NewsBanner = () => {
-    const data = useData()
-    const newsBannerData = data?.data
 
     return (
         <>
@@ -15,7 +13,7 @@ const NewsBanner = () => {
                                 <div className='col-lg-12 p-0'>
                                     <div className='banner-heading'>
                                         <h1 className={`${StadMitte.className} `}>
-                                            {newsBannerData?.news?.title}
+                                            Dubai’s most expensive villa sold for Dh302.5 million
                                         </h1>
                                     </div>
                                 </div>
@@ -23,7 +21,7 @@ const NewsBanner = () => {
                         </div>
                     </div>
                     <div className="banner-img">
-                        <img src={process.env.NEXT_PUBLIC_BASE_URL_LIVE + newsBannerData?.banner?.bannerImg || `/assets/img/banner/news-banner.png`} alt="Banner Image" />
+                        <img src="/assets/img/banner/news-banner.png" alt="Banner Image" />
                     </div>
                 </div>
             </div>
