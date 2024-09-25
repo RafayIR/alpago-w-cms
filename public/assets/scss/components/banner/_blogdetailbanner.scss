@@ -1,0 +1,146 @@
+.blogs-detail-banner {
+    position: relative;
+
+
+    .banner-img {
+        height: 100vh;
+
+        img {
+
+            object-fit: cover;
+            height: 100%;
+        }
+
+
+
+    }
+
+    .banner--content {
+
+        position: absolute;
+        bottom: 115px;
+
+        h1 {
+            font-size: 85px;
+            line-height: 90px;
+        }
+
+        .pill-txt {
+            position: absolute;
+            top: -30px;
+
+            span {
+                color: #ffffff;
+                text-transform: uppercase;
+                background: rgba($color: #ffffff, $alpha: 0.10);
+                padding: 6px 18px;
+                border-radius: 20px;
+            }
+        }
+    }
+
+
+
+    .date-wrapper {
+        padding: 20px 50px;
+        background: #171717;
+        color: #ffffff;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        bottom: 0;
+
+        h3 {
+            font-size: 22px;
+            margin-bottom: 0;
+            line-height: 24px;
+        }
+
+
+        .date {
+            font-size: 26px;
+            margin-left: 15px;
+
+            span {
+                font-size: 14px;
+                display: inline-block;
+                margin-left: 10px;
+                color: #FFFFFF99;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        background: #000;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 35%;
+        z-index: 0;
+    }
+
+}
+
+
+@media screen and (max-width : 991.98px) {
+
+    .blogs-detail-banner {
+
+        .banner--content {
+
+            h1 {
+                font-size: 50px;
+                line-height: 60px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width : 767.98px) {
+
+
+    .blogs-detail-banner {
+
+        .banner--content {
+            padding-inline: 30px;
+
+            h1 {
+                font-size: 45px;
+                line-height: 50px;
+            }
+        }
+
+        .date-wrapper {
+
+            padding: 20px 30px;
+        }
+    }
+
+
+}
+
+
+@media screen and (max-width : 575.98px) {
+
+
+    .blogs-detail-banner {
+
+        .banner--content {
+
+            h1 {
+                font-size: 30px;
+                line-height: 35px;
+            }
+        }
+
+        &::before {
+            content: none;
+
+        }
+    }
+}

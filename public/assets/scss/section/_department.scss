@@ -1,0 +1,436 @@
+.department-wrapper {
+    position: relative;
+
+    .bg-black {
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+
+    .depart-header {
+        margin-bottom: 70px;
+        width: 100%;
+
+        h2 {
+            color: #fff;
+            margin-right: 20px;
+            font-size: 80px;
+            margin-left: -5px;
+            line-height: 98px;
+        }
+    }
+
+    .exp-row {
+        width: 100%;
+        overflow: hidden;
+    }
+
+
+    .left-container,
+    .right-container {
+        height: 80vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    // .slider {
+    //     position: sticky;
+    //     /* Changed to relative for absolute positioning of children */
+    //     top: 0;
+    //     height: 100vh;
+    //     /* Total height is 5 times the viewport height */
+    //     overflow: hidden;
+    // }
+
+    // .depart-img-wrapper {
+    //     // position: sticky;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     // height: 100vh;
+    //     /* Full viewport height */
+    //     // opacity: 0;
+    //     /* Start with hidden images */
+    //     z-index: 1;
+
+    //     img {
+    //         height: 100%;
+    //         object-fit: cover;
+    //     }
+    // }
+
+    .left-content img {
+        position: static;
+        top: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    .left-content img:first-child {
+        opacity: 1;
+    }
+
+    .expert-slide-count {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-100%);
+        z-index: 10;
+        width: auto;
+        height: auto;
+
+
+        .circle {
+            width: 250px;
+            height: 250px;
+            background: #5B5B5B;
+            border-radius: 50%;
+            z-index: 23;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 102.08px;
+            font-weight: 300;
+            font-size: 103.4px;
+            color: #fff;
+        }
+    }
+
+
+    .depart-desc-wrapper {
+        position: relative;
+        left: calc(6vw - 1px);
+
+        .right-element {
+            width: 100%;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .right-element:nth-child(2) {
+            opacity: 1;
+        }
+
+        .desc-para {
+
+            .sub-heading {
+                margin-bottom: 40px;
+
+                h4 {
+                    font-size: 40px;
+                    color: #fff;
+                }
+            }
+
+            width: 75%;
+            margin-bottom: 10px;
+            // position: absolute;
+            // top: 175%;
+            // display: none;
+
+            p {
+                color: #fff;
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 22px;
+            }
+
+
+            &.active {
+                display: block;
+                animation: fadeInFromBottom 0.3s ease forwards;
+
+                p {
+                    transition: 0.4s all;
+                    animation: fadeInFromBottom 0.3s ease forwards;
+                }
+
+                @keyframes fadeInFromBottom {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(50px);
+                    }
+
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+
+        .team-title-wrapper {
+            margin-top: 25px;
+        }
+
+        .sub-title {
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        .team-title {
+            color: rgba($color: (
+                    #ffffff),
+                $alpha: 0.5) !important;
+            }
+
+
+        }
+
+        .left-content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+    }
+
+
+
+    @media (min-width : 1560px) {
+
+        .department-wrapper {
+            .depart-header {
+                margin-bottom: 150px;
+
+                h2 {
+                    font-size: 100px;
+                    line-height: 110px;
+
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width : 1440px) {
+
+        .department-wrapper {
+
+            .expert-slide-count {
+
+                .circle {
+                    width: 200px;
+                    height: 200px;
+                    font-size: 85px;
+                }
+            }
+
+            .depart-header {
+                margin-bottom: 45px;
+                width: 100%;
+            }
+
+
+        }
+
+    }
+
+
+    @media screen and (max-width : 1160px) {
+
+        .department-wrapper {
+            .depart-desc-wrapper {
+                .depart-header {
+                    margin-bottom: 50px;
+                }
+
+                h2 {
+                    font-size: 92px;
+                    line-height: 86px;
+                }
+
+                .desc-para {
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width : 991.98px) {
+
+        .department-wrapper {
+
+
+            .left-container,
+            .right-container {
+                height: 60vh;
+            }
+
+            .expert-slide-count {
+                top: 30px;
+
+                .circle {
+                    width: 130px;
+                    height: 130px;
+                    font-size: 63px;
+                }
+            }
+
+
+            .depart-header {
+                h2 {
+                    font-size: 75px;
+                    line-height: 74px;
+                }
+            }
+
+            .depart-desc-wrapper {
+                .sub-heading {
+
+                    h4 {
+                        font-size: 30px;
+                    }
+                }
+
+                .desc-para {
+                    width: 90%;
+                    margin-left: 0px;
+                    margin-bottom: 16px;
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width : 767.98px) {
+
+        .department-wrapper {
+
+            .left-container,
+            .right-container {
+                height: 42vh;
+            }
+
+            .bg-black {
+                padding-top: 80px;
+            }
+
+            .left-content {
+                padding-left: 30px;
+            }
+
+
+            .depart-desc-wrapper {
+                left: 15px;
+
+                .depart-header {
+                    margin-bottom: 0;
+                }
+
+
+                .desc-para {
+                    width: 100%;
+                    padding: 20px 30px 30px 30px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width : 767.98px) {
+        .department-wrapper {
+            padding-top: 22px;
+            background: #000;
+
+
+            .slider {
+
+                .expert-slide-count {
+                    left: 95%;
+                    top: 0;
+
+                    .circle {
+                        width: 60px;
+                        height: 60px;
+                        font-size: 28px;
+
+                    }
+                }
+            }
+
+
+            .row {
+                flex-direction: column-reverse;
+            }
+
+            .depart-header {
+                width: 100%;
+
+                h2 {
+                    text-align: left;
+                    font-size: 66px;
+                    line-height: 62px;
+                }
+            }
+
+            .depart-desc-wrapper {
+                padding-inline: 15px;
+
+
+
+                .desc-para {
+                    padding-bottom: 20px;
+                    padding-left: 0;
+                    padding-right: 30px;
+
+                    .sub-heading {
+                        margin-bottom: 15px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    @media screen and (max-width : 575.98px) {
+
+        .department-wrapper {
+
+            .bg-black {
+                padding-top: 50px !important;
+            }
+
+            .depart-header {
+                h2 {
+                    font-size: 60px;
+                    line-height: 60px;
+                }
+            }
+
+            .depart-desc-wrapper {
+                .desc-para {
+                    .sub-heading {
+                        h4 {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+
+            .right-container {
+                height: 48vh;
+            }
+        }
+    }

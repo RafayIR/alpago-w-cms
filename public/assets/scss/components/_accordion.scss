@@ -1,0 +1,364 @@
+.insight-wrapper {
+
+    .bg-grey {
+        padding: 100px 0;
+        padding-bottom: 100px;
+    }
+
+    .al-heading {
+        margin-bottom: 100px;
+        padding-inline: 50px;
+        margin-left: -5px;
+
+        h2 {
+            font-size: 160px;
+            line-height: 100px;
+            color: #fff;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+    }
+
+    .accordion-wrapper {
+        padding-inline: 50px;
+
+
+    }
+
+
+    .img-wrapper {
+        height: 100%;
+
+        &.active {
+            img {
+                visibility: visible;
+                opacity: 1;
+                height: 100%;
+                object-fit: cover;
+                transition: opacity 0.6s ease-out;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease-out;
+            visibility: hidden;
+            opacity: 0;
+
+            /* Define the transition effect */
+
+        }
+    }
+
+    .accordion-count {
+        display: block;
+        padding: 42px 0px 30px 35px;
+        color: #B1B1B1;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 28px;
+    }
+
+    .arrow-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid;
+        padding: 8px;
+    }
+}
+
+.wrapper {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+
+    &.active {
+        background: #FFFFFF26;
+    }
+
+    .question-container {
+        width: 100%;
+        text-align: left;
+        padding: 35px 30px 35px 25px;
+        display: flex;
+        color: #fff;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        h4 {
+            text-transform: uppercase;
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 36px;
+        }
+    }
+
+    p {
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .arrow {
+        font-size: 2rem;
+        transition: .3s ease-in-out;
+    }
+
+    .answer {
+        transition: height .3s ease-in-out;
+        padding-left: 44px;
+
+
+        p {
+            padding: 2px 30px 20px 30px;
+            padding-bottom: 50px;
+            color: rgba($color: #ffffff, $alpha: 0.75);
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 300;
+        }
+    }
+
+}
+
+@media screen and (min-width : 1200px) {
+
+    .insight-wrapper {
+        .wrapper {
+            height: 33.33%;
+            transition: 0.3s ease all;
+
+            .accordion-count {
+                padding: 84px 0px 30px 35px;
+            }
+
+            .acc-wrapper {
+                height: 100%;
+                align-items: baseline;
+
+                .question-container {
+                    padding: 35px 30px 16px 25px;
+                }
+
+
+                &.active {
+                    transition: 0.3s ease all;
+                    height: auto;
+
+                }
+            }
+
+            .answer {
+                padding-left: 56px;
+            }
+
+        }
+
+        .accordion-count {
+            &.active {
+                padding: 40px 0px 30px 35px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width : 1260px) {
+    .wrapper {
+        .answer {
+            p {
+                padding-bottom: 20px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 1440px) {
+
+    .insight-wrapper {
+
+        .al-heading {
+            h2 {
+                font-size: 110px;
+                line-height: 70px;
+            }
+        }
+
+
+        .accordion-count {
+            padding: 35px 0px 30px 20px;
+        }
+
+
+    }
+
+    .wrapper {
+
+        .arrow {
+            font-size: 20px;
+        }
+
+        .acc-wrapper {
+            .question-container {
+                padding: 25px 30px 25px 25px;
+            }
+        }
+
+
+
+        .question-container {
+
+
+            h4 {
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width : 991.98px) {
+
+
+    .insight-wrapper {
+        padding-top: 0;
+
+        .al-heading {
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 70px;
+            }
+        }
+
+        .arrow-icon {
+            transform: rotate(90deg);
+            transition: 0.3s ease-in-out;
+
+            &.active {
+                transform: rotate(-90deg);
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        .img-wrapper {
+            height: 500px;
+            padding-bottom: 5px;
+        }
+    }
+
+
+    .wrapper {
+
+        .answer {
+            padding-right: 44px;
+
+            p {
+                padding: 0px 10px 20px 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 767.98px) {
+
+    .insight-wrapper {
+
+        .bg-grey {
+            padding: 50px 0;
+            padding-bottom: 50px;
+        }
+
+        .al-heading {
+            padding-inline: 30px;
+            margin-left: 0;
+        }
+
+
+        .accordion-count {
+
+            font-size: 26px;
+            line-height: 30px;
+        }
+
+        .accordion-wrapper {
+            padding-inline: 30px;
+        }
+    }
+
+    .wrapper {
+        .acc-wrapper {
+            .question-container {
+                padding: 15px 15px 25px 25px;
+            }
+        }
+
+        .answer {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+}
+
+
+@media screen and (max-width : 575.98px) {
+    .insight-wrapper {
+
+        .bg-black {
+            padding-bottom: 10px;
+            padding-top: 40px;
+        }
+
+        .accordion-count {
+            padding: 20px 0px 30px 14px;
+        }
+
+        .al-heading {
+
+            h2 {
+                font-size: 55px;
+            }
+        }
+
+        .arrow-icon {
+            width: 40px;
+            padding: 8px;
+            height: 40px;
+        }
+
+        .img-wrapper {
+            height: 300px;
+        }
+
+
+    }
+
+
+    .wrapper {
+        .question-container {
+            padding: 15px 15px 15px 15px;
+
+            h4 {
+                font-size: 26px;
+            }
+        }
+
+        .answer {
+
+            p {
+                padding: 0px 10px 20px 0px;
+            }
+
+
+        }
+    }
+}

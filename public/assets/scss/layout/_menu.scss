@@ -1,0 +1,58 @@
+.navbar {
+    $white : #fff;
+
+    .nav-item {
+        overflow: hidden;
+        margin: 0 6px;
+        padding: 0;
+        margin-top: 8px;
+        position: relative;
+
+        .nav-link {
+            padding-top: 0;
+            padding-bottom: 0;
+            display: block;
+            padding-right: 17px !important;
+            transform: translateY(0);
+            transition-property: transform;
+            font-size: 13px;
+            letter-spacing: .8px;
+            will-change: transform;
+            line-height: 14px;
+            color: #fff;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-link+.nav-link {
+            position: absolute;
+            transition: 0.6s ease;
+            top: 100%;
+            left: 0;
+            width: 100%;
+        }
+
+        &:last-child {
+            padding-right: 0 !important;
+            margin-right: 0;
+
+
+            .nav-link {
+                padding-right: 0 !important;
+            }
+        }
+
+        &:hover {
+            .nav-link {
+                transition: 0.3s ease-in-out;
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    .arrow-down {
+        position: absolute;
+        color: #fff;
+        right: -2px;
+        top: -7.5px;
+    }
+}

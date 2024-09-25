@@ -1,0 +1,117 @@
+.project-form-wrapper {
+
+    .bg-grey {
+        padding: 100px 0;
+        background: #555555;
+    }
+
+    .form-padding {
+        padding-inline: 50px;
+    }
+
+
+    .form-heading {
+        margin-bottom: 40px;
+
+        h3 {
+            font-size: 60px;
+            color: #fff;
+        }
+    }
+
+    .form-input {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        justify-content: space-between;
+
+        .input-wrapper {
+            width: 45%;
+            position: relative;
+
+            input {
+                width: 100%;
+                padding-bottom: 5px;
+                font-size: 14px;
+                border: none;
+                color: #fff;
+                background: transparent;
+                border-bottom: 1px solid #ccc;
+
+                &::placeholder {
+                    color: #fff;
+                }
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+
+            select {
+                background: transparent;
+                border: none;
+                padding-bottom: 5px;
+                font-size: 14px;
+                width: 100%;
+                color: #fff;
+                border-bottom: 1px solid #ccc;
+
+
+                option {
+                    background: #555555;
+                    border: none;
+                    color: #fff;
+                }
+
+                &:focus-visible {
+                    outline: none;
+                }
+
+            }
+
+            .error-messagae {
+                color: red;
+                font-size: 12px;
+            }
+        }
+    }
+
+    button {
+        margin-top: 60px;
+        width: 200px;
+        padding: 6px 0;
+        color: #000;
+        border: none;
+        background: #fff;
+    }
+}
+
+
+@media screen and (max-width : 767.98px) {
+
+    .project-form-wrapper {
+        .form-padding {
+            padding-inline: 30px;
+        }
+    }
+}
+
+@media screen and (max-width : 575.98px) {
+
+    .project-form-wrapper {
+
+        .form-heading {
+
+            h3 {
+                font-size: 45px;
+            }
+        }
+
+
+        .form-input {
+            .input-wrapper {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+$color_1: #fff;
+$color_2: #000;
+
+.project-form-wrapper {
+    .form-input {
+        .input-wrapper {
+            .arrow-down {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: $color_1;
+            }
+
+            .multiSelectContainer {
+                border-bottom: 1px solid #ccc;
+
+                .searchWrapper {
+                    input {
+                        width: auto;
+                        text-transform: uppercase;
+                        height: auto;
+                        border-bottom: none;
+                    }
+
+                    .chip {
+                        color: $color_2;
+                        border: none;
+                        background: #fff;
+                    }
+
+                    .closeIcon {
+                        mix-blend-mode: difference;
+                    }
+                }
+
+                .optionListContainer {
+                    z-index: 8;
+                }
+            }
+        }
+    }
+
+    .multiSelectContainer {
+        .highlightOption {
+            background: transparent;
+            color: $color_2;
+        }
+
+        li {
+            &:hover {
+                background: #555555;
+                color: $color_1;
+            }
+        }
+    }
+
+    .input-wrapper {
+        .searchWrapper {
+            border: none;
+            padding: 0;
+            border-radius: 0;
+            padding: 0;
+            margin-top: 3px;
+        }
+    }
+}
+
+.multiSelectContainer {
+    .checkbox {
+        margin-right: 0;
+    }
+}
+
+
+.project-form-wrapper .form-input .input-wrapper .multiSelectContainer input {
+    margin-top: 0;
+    width: 40px;
+    height: 15px;
+}
+
+
+
+.custom-checkbox .option .checkbox {
+    display: none;
+}
+
+.custom-checkbox .option::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid #000 !important;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.custom-checkbox .option.selected::before {
+    background-color: #737373;
+    /* Change this color to your desired checkbox color */
+    content: '✓';
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+}

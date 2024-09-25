@@ -1,0 +1,45 @@
+/* 
+.container-scroll {
+    width: 600vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.firstContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color : white;
+    align-items: center;
+    height: 70vh;
+    background: #000;
+}
+
+
+.panel {
+    width: 40vw;
+    height: 70vh;
+    margin-right: 30px;
+    
+}
+
+.blue {
+    background: blue;
+}
+
+.red {
+    background: red;
+}
+
+.orange {
+    background: orange;
+}
+
+.purple {
+    background: purple;
+}
+
+.blue {
+    background-color: blue;
+} */

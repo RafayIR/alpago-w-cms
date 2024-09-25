@@ -1,0 +1,99 @@
+.proj-detail-area {
+    position: relative;
+
+    .total-area-img {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 550px;
+        width: 100%;
+
+        .total-area-count {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-48%, -50%);
+
+
+            span {
+                font-size: 20px;
+                color: #fff;
+            }
+
+            h2 {
+                span {
+                    font-size: 150px;
+                    color: #fff;
+                    line-height: 130px;
+                }
+
+                sup {
+                    vertical-align: top;
+                    top: auto;
+                    right: 3px;
+                    line-height: 70px;
+                    color: #ffff;
+                    font-size: 36px;
+
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 991.98px) {
+
+    .proj-detail-area {
+        .total-area-img {
+            .total-area-count {
+                h2 {
+                    span {
+                        font-size: 160px;
+                        line-height: 140px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width : 767.98px) {
+
+    .proj-detail-area {
+
+        .total-area-img {
+            background-attachment: initial;
+
+            .total-area-count {
+                h2 {
+                    span {
+                        font-size: 100px;
+                        line-height: 86px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 575.98px) {
+
+    .proj-detail-area {
+        .total-area-img {
+            .total-area-count {
+                right: 18px;
+
+                h2 {
+                    span {
+                        font-size: 65px;
+                        line-height: 65px;
+                    }
+                }
+            }
+        }
+    }
+}

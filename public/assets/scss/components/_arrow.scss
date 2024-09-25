@@ -1,0 +1,80 @@
+.al-slider-arrow {
+    $white : #fff;
+    $black : #222;
+
+    button {
+        background: #f4f4f4;
+        color: #000;
+        border: none;
+        font-size: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 0;
+
+        &.test-next {
+            &.active {
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 50%;
+            background: $black;
+            transform: scale(0);
+            transition-duration: .4s;
+            transition-timing-function: cubic-bezier(.25, .74, .22, .99);
+            transition-property: transform, background-color, border-color, box-shadow;
+        }
+
+        &:hover {
+            color: $white;
+
+            &::before {
+                transition-duration: .4s;
+                transition-timing-function: cubic-bezier(.25, .74, .22, .99);
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.next-dexktop {
+    background: transparent;
+    color: #fff;
+    border: none;
+    position: absolute;
+    width: 80px;
+    bottom: 66px;
+    left: -18px;
+    z-index: 30;
+    font-weight: 200;
+    animation: slideInArrow 2s ease forwards;
+    transition: 0.45s ease-in-out, opacity;
+}
+
+
+@keyframes slideInArrow {
+    0% {
+        opacity: 0;
+        transform: translate(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

@@ -1,0 +1,237 @@
+.blogs-landing-wrapper {
+
+    .bg-black {
+
+        padding: 100px 50px;
+    }
+
+    .rt-col {
+        display: flex;
+        padding-left: 15px;
+        flex-direction: column;
+        row-gap: 25px;
+    }
+
+    .left-col {
+        padding-right: 15px;
+    }
+
+    .blogs-card {
+        color: #ffffff;
+        border: 1px solid #FFFFFF4D;
+        text-decoration: none;
+        background: #171717;
+        display: block;
+        height: 100%;
+
+
+        &.border-none {
+            border: none;
+
+            .news-card-img {
+                border: 1px solid #FFFFFF4D;
+                border-bottom: 0;
+            }
+
+            .content-desc {
+                border: 1px solid #FFFFFF4D;
+                border-top: 0;
+            }
+        }
+
+        .news-card-img {
+            position: relative;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+
+            .pill-txt {
+                span {
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    background: rgba($color: #000000, $alpha: 0.30);
+                    padding: 6px 18px;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        .content-desc {
+            padding: 25px 25px;
+            height: 42vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h4 {
+                font-size: 36px;
+                text-transform: uppercase;
+                line-height: 42px;
+            }
+        }
+
+        .view-more-wrapper {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            // position: absolute;
+            // bottom: 0;
+
+
+            span {
+                font-size: 26px;
+                text-decoration: none;
+                line-height: 30px;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin-right: 25px;
+                display: inline-block;
+            }
+
+
+            .icon-arrow-tilt {
+                margin: inherit;
+            }
+        }
+
+
+        &.blog-flex {
+            display: flex;
+            height: auto;
+
+            .news-card-img {
+                position: relative;
+                flex-shrink: 0;
+                width: 50%;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content-desc {
+                height: 100%;
+
+
+
+            }
+
+
+            .view-more-wrapper {
+                position: static;
+            }
+
+            .news-heading {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+        }
+    }
+
+    .bottom {
+        margin-top: 25px;
+
+        .rt-col {
+            padding-right: 15px;
+
+        }
+
+        .left-col {
+            padding-left: 15px;
+
+        }
+
+    }
+}
+
+
+@media screen and (max-width : 991.98px) {
+
+
+    .blogs-landing-wrapper {
+
+
+        .blogs-row {
+            row-gap: 25px;
+        }
+
+        .blogs-card {
+            height: auto;
+
+            .content-desc {
+                position: static;
+            }
+
+            .view-more-wrapper {
+                position: static;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 767.98px) {
+
+    .blogs-landing-wrapper {
+
+        .bg-black {
+            padding: 100px 31px;
+        }
+
+        .blogs-card {
+            .content-desc {
+                padding: 15px;
+
+
+                h4 {
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+            }
+
+            .view-more-wrapper {
+                padding-top: 15px;
+
+                span {
+                    font-size: 20px;
+                }
+            }
+
+            .news-card-img {
+
+                .pill-txt {
+
+                    span {
+                        top: 10px;
+                        left: 10px;
+                    }
+                }
+            }
+
+
+            &.blog-flex {
+                .news-card-img {
+
+
+                    width: 45%;
+                }
+            }
+        }
+
+        .icon-arrow-tilt {
+            height: 45px;
+            width: 45px;
+            padding: 10px;
+        }
+    }
+}

@@ -1,0 +1,207 @@
+.awards {
+    $white : #fff;
+    $black : #222;
+    min-height: 800px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .company-awards-header {
+        padding-inline: 50px;
+        margin-bottom: 100px;
+
+        .company-title {
+            h2 {
+                font-size: 160px;
+                line-height: 96px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .award-card {
+
+        .card-image {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .card-top {
+            .leading-trim {
+                color: #fff;
+                font-size: 18px;
+                line-height: 24px;
+                letter-spacing: 0.02em;
+                font-weight: 300;
+            }
+
+            .text--color-small {
+                color: hsla(0, 0%, 100%, .5);
+            }
+        }
+
+        .card-bottom {
+            .leading-trim {
+                color: #222;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.04em;
+                font-weight: 400;
+            }
+
+            .text--color-small {
+                color: hsla(0, 0%, 25%, 0.5);
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+
+        // .card-sizer {
+        //     padding-top: 100%;
+        // }
+
+        .card-content {
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            // width: 100%;
+            // height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            padding: 30px;
+            border-top: 1px solid rgba(34, 34, 34, .1);
+            border-right: 1px solid rgba(34, 34, 34, .1);
+        }
+
+        .card-hover {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #555;
+            transition-property: -webkit-clip-path;
+            transition-property: clip-path;
+            transition-property: clip-path, -webkit-clip-path;
+            transition-duration: .5s;
+            -webkit-clip-path: circle(0 at 50% 50%);
+            clip-path: circle(0 at 50% 50%);
+            z-index: 1;
+            padding: 50px;
+        }
+
+        .card-bottom {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 60px;
+        }
+
+
+        &.active {
+            .card-hover {
+                clip-path: circle(70.71068% at 50% 50%);
+            }
+
+            .card-bottom {
+                .leading-trim {
+                    color: #fff;
+                }
+
+                .text--color-small {
+                    color: hsla(0, 0%, 100%, .5);
+                }
+            }
+        }
+    }
+
+    &.awards-gap {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (min-width : 1600px) {
+    .awards {
+
+        .company-awards-header {
+
+            .company-title {
+
+                h2 {
+                    font-size: 240px;
+                    line-height: 160px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 991.98px) {
+    .awards {
+        padding-top: 90px;
+        padding-bottom: 0;
+
+        .company-awards-header {
+            justify-content: space-between;
+        }
+    }
+}
+
+@media screen and (max-width : 767.98px) {
+
+    .awards {
+        min-height: auto;
+
+        .company-awards-header {
+            padding-inline: 30px;
+
+            .company-title {
+                h2 {
+                    font-size: 90px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 575.98px) {
+    .awards {
+
+        .award-card {
+            .card-hover {
+                padding: 30px;
+            }
+        }
+
+        padding-top: 50px;
+
+        .company-awards-header {
+
+            margin-bottom: 15px;
+
+            .company-title {
+                h2 {
+                    font-size: 50px;
+                    font-weight: 100;
+                }
+            }
+        }
+
+
+
+        .award-card {
+            .card-bottom {
+                padding: 30px;
+            }
+        }
+
+        .al-slider-arrow {
+            button {
+                width: 44px;
+                height: 44px;
+                font-size: 16px;
+            }
+        }
+    }
+}

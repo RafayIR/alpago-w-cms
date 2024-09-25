@@ -1,0 +1,244 @@
+.footer {
+    background: #000;
+    padding: 100px 50px 15px 50px;
+    position: 'fixed';
+    bottom: 0;
+    width: '100%';
+    z-index: -100;
+
+    &.margin-0 {
+        margin-top: 0;
+    }
+
+    .footer-holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            list-style: none;
+            margin-bottom: 5px;
+
+            a {
+                font-size: 14px;
+                line-height: 12px;
+                color: #ffffff;
+            }
+
+        }
+    }
+
+    .light {
+        color: rgba($color: #ffffff, $alpha: 0.7);
+    }
+
+    .link-row {
+        justify-content: space-around
+    }
+
+    .footer-heading {
+        margin-bottom: 16px;
+
+        h4 {
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 17px;
+            color: #ffffff;
+
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+
+    .footer-desc {
+        margin-bottom: 30px;
+        max-width: 450px;
+
+        p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 0;
+            line-height: 20px;
+            color: rgba($color: #ffffff, $alpha: 0.7)
+        }
+    }
+
+    .lst-col {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .middle-col {
+        display: flex;
+        // margin-right: 60px;
+        justify-content: center;
+    }
+
+    .main-footer {
+        padding-bottom: 50px;
+
+        .footer-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+
+            a {
+                color: #fff;
+                font-size: 16px;
+                font-weight: 300;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .footer-rt-row {
+        .fst-col {
+            .footer-heading {
+                margin-bottom: 40px;
+            }
+        }
+
+        .footer-heading {
+            margin-bottom: 24px
+        }
+    }
+
+
+    .social-wrapper {
+        margin-top: 30px;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        span {
+            display: inline-block;
+            margin-top: 20px;
+            flex-shrink: 0;
+
+        }
+    }
+
+
+    .footer-bottom {
+        padding-bottom: 15px;
+
+        .row--between-xs {
+            margin-top: 30px;
+
+            p {
+                color: #fff;
+                font-size: 14px;
+                line-height: 12px;
+            }
+
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-icon {
+            width: 25px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+
+}
+
+
+@media screen and (min-width :1540px) {
+
+    .footer-height {
+        height: 540px;
+    }
+
+    .footer {
+        height: 75%;
+    }
+}
+
+
+@media screen and (max-width : 1260px) {
+    .footer {
+
+
+        .middle-col {
+            margin-right: 0;
+        }
+    }
+}
+
+
+@media screen and (max-width : 991.98px) {
+    .footer {
+        .middle-col {
+            justify-content: flex-start;
+        }
+    }
+
+    .or-2 {
+        order: 2;
+    }
+}
+
+
+@media screen and (max-width : 767.98px) {
+
+    .footer {
+        padding: 70px 30px 15px 30px;
+
+        .middle-col {
+            justify-content: flex-start;
+        }
+
+        .lst-col {
+            justify-content: flex-start;
+        }
+    }
+
+    .or-2 {
+        order: 0;
+        margin-top: 30px !important;
+    }
+
+    .lst-col {
+        margin-top: 30px !important;
+    }
+}
+
+
+@media screen and (max-width : 575.98px) {
+
+
+    .footer {
+        .footer-bottom {
+            .logo-icon {
+                width: 20px;
+            }
+
+            .row--between-xs {
+                p {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+
+        .footer-holder {
+            .main-footer {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

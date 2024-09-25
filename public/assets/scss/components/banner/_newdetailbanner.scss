@@ -1,0 +1,125 @@
+.news-detail-banner {
+
+
+    .bg-black {
+        padding-inline: 50px;
+    }
+
+
+    .banner--content {
+        position: static;
+        padding-inline: 0;
+        height: 385px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+
+
+@media screen and (max-width :1260px) {
+
+    .news-banner {
+
+        .video-wrapper {
+            top: 0;
+        }
+
+        .banner--content {
+            bottom: 0;
+        }
+
+        .video-wrapper {
+            .banner-img {
+                height: 450px;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width : 767.98px) {
+
+    .news-detail-banner {
+
+        .bg-black {
+            padding-inline: 30px;
+        }
+
+
+        .banner-img {
+            height: 200px;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .banner--content {
+
+            .banner-heading {
+
+                h1 {
+                    font-size: 45px;
+                    line-height: 45px;
+                }
+            }
+        }
+    }
+
+    .news-banner {
+        .video-wrapper {
+            .banner-img {
+                height: 380px;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .banner--content {
+            width: 100%;
+            left: 0;
+            padding-inline: 10px;
+
+            .banner-heading {
+                h1 {
+                    letter-spacing: 0.15px;
+                    font-size: 48px;
+                    line-height: 55px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width :575.98px) {
+
+    .news-detail-banner {
+
+
+        .banner--content {
+            height: 280px;
+
+            .banner-heading {
+
+                h1 {
+
+                    font-size: 35px;
+                    line-height: 45px;
+                }
+            }
+        }
+    }
+}
